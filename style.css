@@ -144,18 +144,18 @@ body{font-family:var(--sans);color:var(--text);overflow:hidden;letter-spacing:-.
   background:radial-gradient(120% 100% at 50% 36%,#f4f9ff 0%,#e6f0fa 52%,#d8e7f5 100%);
   box-shadow:var(--shadow-h),inset 0 0 0 1px var(--line)}
 .center::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(46% 58% at 50% 45%,rgba(116,174,230,.20) 0%,rgba(116,174,230,.05) 48%,transparent 72%)}
+  background:radial-gradient(48% 60% at 50% 45%,var(--halo,rgba(116,174,230,.2)) 0%,transparent 72%)}
 #globe{position:absolute;inset:0;z-index:1}
 #globe canvas{outline:none}
 
 /* minimal clean HUD (light pills over the bright globe) */
-.hud{position:absolute;inset:0;pointer-events:none;z-index:3;font-family:var(--mono);color:var(--teal-deep)}
+.hud{position:absolute;inset:0;pointer-events:none;z-index:3;font-family:var(--mono);color:var(--hud-accent,var(--teal-deep))}
 .hud .br,.hud .reticle,.hud .ring{display:none}
 .hud-tag{position:absolute;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.82);border:1px solid var(--line2);
   padding:5px 11px;border-radius:999px;backdrop-filter:blur(6px);box-shadow:0 2px 8px rgba(40,60,90,.08)}
 .hud-tag .lbl{color:var(--mute)}
-.hud-tag .val{color:var(--teal-deep);font-weight:700}
+.hud-tag .val{color:var(--hud-accent,var(--teal-deep));font-weight:700}
 .hud .feed{left:16px;top:14px}
 .hud .feed .dot{width:7px;height:7px;border-radius:50%;background:#16c08a;box-shadow:0 0 8px rgba(22,192,138,.7);animation:blink 1.4s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
@@ -175,6 +175,29 @@ body{font-family:var(--sans);color:var(--text);overflow:hidden;letter-spacing:-.
 .gl-tip .t-co{color:var(--soft);font-size:10.5px;margin-top:5px}
 .gl-tip.country .t-c{font-size:13.5px;font-weight:800;color:var(--text)}
 .gl-tip.country .t-s{font-size:11px;color:var(--soft);margin-top:4px}
+
+/* palette switcher (globe card, bottom-left) */
+.palette-bar{position:absolute;left:14px;bottom:14px;z-index:5;display:flex;gap:7px;align-items:center;
+  background:rgba(255,255,255,.82);border:1px solid var(--line2);border-radius:999px;padding:6px 8px;
+  backdrop-filter:blur(6px);box-shadow:0 2px 9px rgba(40,60,90,.12)}
+.palette-bar .sw{width:18px;height:18px;border-radius:50%;cursor:pointer;padding:0;
+  border:2px solid rgba(255,255,255,.9);box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .12s}
+.palette-bar .sw:hover{transform:scale(1.18)}
+.palette-bar .sw.active{outline:2.5px solid var(--coral);outline-offset:1px;transform:scale(1.12)}
+
+/* dark-globe variants: HUD / tooltip / hint / switcher go dark over a dark "jewel" globe */
+body.glb-dark .hud-tag{background:rgba(8,16,30,.55);border-color:rgba(255,255,255,.12);box-shadow:none}
+body.glb-dark .hud-tag .lbl{color:rgba(190,205,225,.7)}
+body.glb-dark .hud .readout .row .lbl{color:rgba(190,205,225,.6)}
+body.glb-dark .glob-hint{color:rgba(210,220,238,.85);background:rgba(8,16,30,.5);border-color:rgba(255,255,255,.1);box-shadow:none}
+body.glb-dark .palette-bar{background:rgba(8,16,30,.5);border-color:rgba(255,255,255,.14);box-shadow:none}
+body.glb-dark .palette-bar .sw{border-color:rgba(255,255,255,.55)}
+body.glb-dark .gl-tip{background:rgba(10,18,32,.94);border-color:rgba(255,255,255,.12);box-shadow:0 12px 34px rgba(0,0,0,.45)}
+body.glb-dark .gl-tip .t-date{color:#9bb0cc}
+body.glb-dark .gl-tip .t-title{color:#fff}
+body.glb-dark .gl-tip .t-co{color:#9fb2cc}
+body.glb-dark .gl-tip.country .t-c{color:#fff}
+body.glb-dark .gl-tip.country .t-s{color:#cdd9ec}
 
 /* ============ right timeline ============ */
 .tl-head{display:flex;align-items:center;gap:9px;margin:2px 2px 13px}

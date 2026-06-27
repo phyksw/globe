@@ -12,6 +12,32 @@ const SECTOR_COLORS = {
   'AI':'#34d399','반도체':'#e879f9','데이터센터':'#a3e635','우주':'#a78bfa',
   '방산':'#fb923c','양자':'#38bdf8','자율주행':'#fb7185','기타':'#94a3b8'
 };
+
+/* ---- globe color palettes (switchable; ocean/land/coast/card/HUD per theme) ---- */
+const GLOBE_THEMES = [
+  { name:'Deep Teal Jewel', label:'딥 틸 주얼', darkGlobe:true, ocean:'#0b6b65',
+    landCap:'rgba(255,243,222,0.97)', landSide:'rgba(193,147,107,0.92)', landStroke:'rgba(255,107,94,0.95)',
+    cardBg:'radial-gradient(130% 130% at 30% 18%, #11857d 0%, #0b6b65 42%, #07504a 74%, #06403b 100%)',
+    halo:'rgba(64,233,211,0.42)', hudAccent:'#2cf0d8', selectedPin:'#fff1d6', swatch:'#0b6b65' },
+  { name:'Royal Indigo', label:'로열 인디고', darkGlobe:true, ocean:'#241a63',
+    landCap:'rgba(201,190,246,0.97)', landSide:'rgba(122,102,194,0.95)', landStroke:'rgba(251,191,60,0.95)',
+    cardBg:'radial-gradient(120% 120% at 50% 26%, #2e2280 0%, #211a5e 42%, #15103f 78%, #0e0a2c 100%)',
+    halo:'rgba(167,139,250,0.30)', hudAccent:'#fbbf24', selectedPin:'#ffe27a', swatch:'#241a63' },
+  { name:'Aqua Mint Pop', label:'아쿠아 민트', darkGlobe:false, ocean:'#1bc6d6',
+    landCap:'rgba(255,255,255,0.97)', landSide:'rgba(198,238,240,0.95)', landStroke:'rgba(9,104,106,0.92)',
+    cardBg:'radial-gradient(circle at 50% 36%, #f2fffd 0%, #ddf8f7 45%, #c2eff0 100%)',
+    halo:'rgba(27,198,214,0.32)', hudAccent:'#0e8a86', selectedPin:'#ff5240', swatch:'#1bc6d6' },
+  { name:'Graphite Jewel', label:'그래파이트', darkGlobe:true, ocean:'#1e242e',
+    landCap:'rgba(244,248,252,0.98)', landSide:'rgba(148,163,184,0.85)', landStroke:'rgba(34,41,52,0.95)',
+    cardBg:'radial-gradient(120% 120% at 30% 18%, #2b3340 0%, #232a35 42%, #171c25 100%)',
+    halo:'rgba(120,150,190,0.30)', hudAccent:'#e6edf6', selectedPin:'#ffffff', swatch:'#1e242e' },
+  { name:'Sunset Coral', label:'선셋 코랄', darkGlobe:true, ocean:'#dc5436',
+    landCap:'rgba(11,50,52,0.97)', landSide:'rgba(6,31,34,1)', landStroke:'rgba(94,234,212,0.6)',
+    cardBg:'radial-gradient(120% 120% at 30% 18%, #ff8c5e 0%, #ec5836 38%, #bf3527 72%, #7a211f 100%)',
+    halo:'rgba(255,173,120,0.45)', hudAccent:'#fff1e6', selectedPin:'#38e0d6', swatch:'#dc5436' },
+];
+let _themeIdx = 0;
+let GT = GLOBE_THEMES[_themeIdx];
 const SECTOR_ORDER = ['AI','자율주행','우주','양자','반도체','데이터센터','방산','기타'];
 const TYPE_ORDER = ['계약','출시','매출','화제'];
 const FLAG = {US:'🇺🇸',KR:'🇰🇷',CN:'🇨🇳',TW:'🇹🇼',JP:'🇯🇵',NL:'🇳🇱',GB:'🇬🇧',DE:'🇩🇪',FR:'🇫🇷',
@@ -96,7 +122,7 @@ function orbitPoint(inc,node,ang){ const I=inc*PI/180,N=node*PI/180,T=ang*PI/180
 const elGlobe = document.getElementById('globe');
 function solidTex(hex){ const c=document.createElement('canvas'); c.width=c.height=4; const x=c.getContext('2d'); x.fillStyle=hex; x.fillRect(0,0,4,4); return c.toDataURL(); }
 const globe = Globe()(elGlobe)
-  .globeImageUrl(solidTex('#d3e3f2'))          // soft light "ocean" (MangoBoard tone)
+  .globeImageUrl(solidTex(GT.ocean))           // ocean color from the current palette
   .backgroundColor('rgba(0,0,0,0)')
   .showAtmosphere(false)                        // CSS halo instead (scattering shader washes orange)
   .showGraticules(true)
@@ -125,15 +151,17 @@ const globe = Globe()(elGlobe)
 
 globe.pointOfView({ lat: 24, lng: -42, altitude: 2.6 }, 0);
 
-// flat lighting + fix globe diffuse color. globe.gl nulls material.color on texture-load
-// (shader then renders garbage orange), so re-apply navy a few times past that load.
-(function tuneGlobe(){ const gm=globe.globeMaterial();
+// Lighting + fix globe diffuse color per palette. globe.gl nulls material.color on texture-load
+// (shader then renders garbage), so re-apply the ocean color a few times past that load.
+function reapplyOcean(){ const gm=globe.globeMaterial();
   function setColor(){ let src=null;
     globe.scene().traverse(o=>{ if(o.isLight){ if(o.color&&!src) src=o.color;
-      if(o.type.indexOf('Directional')>=0) o.intensity=0.25; if(o.type.indexOf('Ambient')>=0) o.intensity=3.2; } });
-    if(src){ if(gm.color==null) gm.color=src.clone(); gm.color.set('#d3e3f2'); gm.needsUpdate=true; } }
+      if(o.type.indexOf('Directional')>=0) o.intensity = GT.darkGlobe?0.55:0.42;   // directional gives the sphere 3D depth (not flat/bland)
+      if(o.type.indexOf('Ambient')>=0)     o.intensity = GT.darkGlobe?1.15:2.35; } });
+    if(src){ if(gm.color==null) gm.color=src.clone(); gm.color.set(GT.ocean); gm.needsUpdate=true; } }
   [0,120,300,600,1100,1800,3000].forEach(d => setTimeout(setColor, d));
-})();
+}
+reapplyOcean();
 
 const ctrl = globe.controls();
 ctrl.autoRotate = true; ctrl.autoRotateSpeed = 0.32; ctrl.enableDamping = true; ctrl.dampingFactor = 0.12;
@@ -152,7 +180,7 @@ function recomputeGeo(){
   vis.forEach(it => { (byC[it.country]=byC[it.country]||{})[it.sector]=(byC[it.country][it.sector]||0)+1; });
   for (const iso in byC) _domSector[iso] = Object.entries(byC[iso]).sort((a,b)=>b[1]-a[1])[0][0];
 }
-const LAND_CAP='rgba(255,255,255,0.94)', LAND_SIDE='rgba(205,219,234,0.55)', LAND_STROKE='rgba(138,160,187,0.95)';
+let LAND_CAP=GT.landCap, LAND_SIDE=GT.landSide, LAND_STROKE=GT.landStroke;   // set per palette by applyGlobeTheme
 // Jeju/Dokdo (_x) are tagged South Korea, so they highlight together with the mainland.
 function capColor(f){ const iso=isoOf(f);
   if(iso && _active.has(iso)){ const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? hexA(c,0.85):hexA(c,0.6); }
@@ -171,7 +199,7 @@ function polyLabel(f){ const iso=isoOf(f); if(!iso) return '';
   return `<div class="gl-tip country"><div class="t-c">${FLAG[iso]||''} ${KO[iso]||iso} · ${vis.length} SIGNALS</div><div class="t-s">${top}</div></div>`; }
 
 /* ---- points (above territory) ---- */
-function pointColor(d){ return state.selected===d.id ? '#1b2433' : SECTOR_COLORS[d.sector]; }
+function pointColor(d){ return state.selected===d.id ? GT.selectedPin : SECTOR_COLORS[d.sector]; }
 function pointAlt(d){ return state.selected===d.id ? 0.12 : 0.05; }
 function pointRadius(d){ return state.selected===d.id ? 0.65 : 0.26; }
 function pointLabel(d){
@@ -380,6 +408,25 @@ $('btnArc').onclick   =()=>{ state.showArcs=!state.showArcs; syncBtns(); render(
 $('btnReset').onclick =resetAll;
 $('tlClear').onclick  =()=>{ state.sector='all'; state.type='all'; state.country=null; render(); };
 
+/* ---- globe color palette switcher ---- */
+function applyGlobeTheme(t){
+  GT=t;
+  LAND_CAP=t.landCap; LAND_SIDE=t.landSide; LAND_STROKE=t.landStroke;
+  globe.globeImageUrl(solidTex(t.ocean)); reapplyOcean();
+  const c=document.querySelector('.center');
+  if(c){ c.style.background=t.cardBg; c.style.setProperty('--halo', t.halo); }
+  document.documentElement.style.setProperty('--hud-accent', t.hudAccent);
+  document.body.classList.toggle('glb-dark', !!t.darkGlobe);
+  render();
+}
+function buildPaletteBar(){ const bar=$('paletteBar'); if(!bar) return; bar.innerHTML='';
+  GLOBE_THEMES.forEach((t,i)=>{ const s=document.createElement('button'); s.type='button';
+    s.className='sw'+(i===_themeIdx?' active':''); s.style.background=t.swatch; s.title=t.label||t.name;
+    s.setAttribute('aria-label', t.label||t.name);
+    s.onclick=()=>{ _themeIdx=i; try{localStorage.setItem('globeTheme',i);}catch(e){} applyGlobeTheme(t); buildPaletteBar(); };
+    bar.appendChild(s); });
+}
+
 /* ---- resize ---- */
 function resize(){ const r=elGlobe.getBoundingClientRect(); if(r.width>0&&r.height>0) globe.width(r.width).height(r.height); }
 window.addEventListener('resize',resize);
@@ -410,7 +457,8 @@ function loop(now){
 }
 
 /* ---- go ---- */
-syncBtns(); render(); resize();
+try{const _ti=+localStorage.getItem('globeTheme'); if(_ti>=0&&_ti<GLOBE_THEMES.length) _themeIdx=_ti;}catch(e){}
+syncBtns(); buildPaletteBar(); applyGlobeTheme(GLOBE_THEMES[_themeIdx]); resize();
 requestAnimationFrame(resize); setTimeout(resize,150); setTimeout(resize,500);
 requestAnimationFrame(loop);
 })();
