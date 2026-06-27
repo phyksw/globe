@@ -96,7 +96,7 @@ function orbitPoint(inc,node,ang){ const I=inc*PI/180,N=node*PI/180,T=ang*PI/180
 const elGlobe = document.getElementById('globe');
 function solidTex(hex){ const c=document.createElement('canvas'); c.width=c.height=4; const x=c.getContext('2d'); x.fillStyle=hex; x.fillRect(0,0,4,4); return c.toDataURL(); }
 const globe = Globe()(elGlobe)
-  .globeImageUrl(solidTex('#0a1626'))          // clean dark "ocean" — no photographic city lights
+  .globeImageUrl(solidTex('#d3e3f2'))          // soft light "ocean" (MangoBoard tone)
   .backgroundColor('rgba(0,0,0,0)')
   .showAtmosphere(false)                        // CSS halo instead (scattering shader washes orange)
   .showGraticules(true)
@@ -130,8 +130,8 @@ globe.pointOfView({ lat: 24, lng: -42, altitude: 2.6 }, 0);
 (function tuneGlobe(){ const gm=globe.globeMaterial();
   function setColor(){ let src=null;
     globe.scene().traverse(o=>{ if(o.isLight){ if(o.color&&!src) src=o.color;
-      if(o.type.indexOf('Directional')>=0) o.intensity=0.5; if(o.type.indexOf('Ambient')>=0) o.intensity=2.5; } });
-    if(src){ if(gm.color==null) gm.color=src.clone(); gm.color.set('#0a1626'); gm.needsUpdate=true; } }
+      if(o.type.indexOf('Directional')>=0) o.intensity=0.25; if(o.type.indexOf('Ambient')>=0) o.intensity=3.2; } });
+    if(src){ if(gm.color==null) gm.color=src.clone(); gm.color.set('#d3e3f2'); gm.needsUpdate=true; } }
   [0,120,300,600,1100,1800,3000].forEach(d => setTimeout(setColor, d));
 })();
 
@@ -152,11 +152,11 @@ function recomputeGeo(){
   vis.forEach(it => { (byC[it.country]=byC[it.country]||{})[it.sector]=(byC[it.country][it.sector]||0)+1; });
   for (const iso in byC) _domSector[iso] = Object.entries(byC[iso]).sort((a,b)=>b[1]-a[1])[0][0];
 }
-const LAND_CAP='rgba(66,90,126,0.42)', LAND_SIDE='rgba(38,54,80,0.5)', LAND_STROKE='rgba(156,184,218,0.55)';
+const LAND_CAP='rgba(255,255,255,0.94)', LAND_SIDE='rgba(205,219,234,0.55)', LAND_STROKE='rgba(138,160,187,0.95)';
 // Jeju/Dokdo (_x) are tagged South Korea, so they highlight together with the mainland.
 function capColor(f){ const iso=isoOf(f);
-  if(iso && _active.has(iso)){ const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? hexA(c,0.74):hexA(c,0.5); }
-  return LAND_CAP; }                                             // muted land fill (continents visible)
+  if(iso && _active.has(iso)){ const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? hexA(c,0.85):hexA(c,0.6); }
+  return LAND_CAP; }                                             // near-white land on light ocean
 function sideColor(f){ const iso=isoOf(f);
   if(iso && _active.has(iso)) return hexA(SECTOR_COLORS[_domSector[iso]]||'#ffb454', 0.3);
   return LAND_SIDE; }
@@ -171,7 +171,7 @@ function polyLabel(f){ const iso=isoOf(f); if(!iso) return '';
   return `<div class="gl-tip country"><div class="t-c">${FLAG[iso]||''} ${KO[iso]||iso} · ${vis.length} SIGNALS</div><div class="t-s">${top}</div></div>`; }
 
 /* ---- points (above territory) ---- */
-function pointColor(d){ return state.selected===d.id ? '#ffffff' : SECTOR_COLORS[d.sector]; }
+function pointColor(d){ return state.selected===d.id ? '#1b2433' : SECTOR_COLORS[d.sector]; }
 function pointAlt(d){ return state.selected===d.id ? 0.12 : 0.05; }
 function pointRadius(d){ return state.selected===d.id ? 0.65 : 0.26; }
 function pointLabel(d){
@@ -228,8 +228,8 @@ function htmlEl(d){
   if(d.kind==='moon'){
     el.style.cssText='pointer-events:none;width:38px;height:38px;transition:opacity .35s';
     el.innerHTML='<div style="width:34px;height:34px;border-radius:50%;position:relative;'
-      +'background:radial-gradient(circle at 36% 32%, #f5f2ea 0%, #d4cfc1 44%, #918c80 78%, #5b5850 100%);'
-      +'box-shadow:0 0 26px 5px rgba(214,222,255,.22), inset -6px -5px 9px rgba(0,0,0,.5)">'
+      +'background:radial-gradient(circle at 36% 32%, #fff8ec 0%, #ece0c8 42%, #cdbb97 74%, #b09a72 100%);'
+      +'box-shadow:0 7px 18px rgba(40,55,80,.28), inset -6px -5px 9px rgba(120,100,70,.4)">'
       +'<span style="position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(110,106,98,.55);left:9px;top:8px"></span>'
       +'<span style="position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(110,106,98,.5);left:21px;top:18px"></span>'
       +'<span style="position:absolute;width:3.5px;height:3.5px;border-radius:50%;background:rgba(110,106,98,.45);left:13px;top:23px"></span></div>';
