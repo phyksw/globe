@@ -205,7 +205,8 @@ function sideColor(f){ const iso=isoOf(f);
 function strokeColor(f){ const iso=isoOf(f);
   if(iso && _active.has(iso)){ const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? c:hexA(c,0.85); }
   return LAND_STROKE; }                                          // bold, always-visible coastlines
-function polyAlt(f){ const iso=isoOf(f); if(iso && _active.has(iso)) return iso===hiCountry()? 0.03:0.018; return 0.006; }
+// keep highlighted territory BELOW the deal lines (LINE_ALT 0.025 / ARROW_ALT 0.028) so arcs ride over it, not under.
+function polyAlt(f){ const iso=isoOf(f); if(iso && _active.has(iso)) return iso===hiCountry()? 0.018:0.012; return 0.006; }
 function polyLabel(f){ const iso=isoOf(f); if(!iso) return '';
   const vis=visible().filter(it=>it.country===iso); if(!vis.length) return '';
   const top=Object.entries(countBy(vis,'sector')).sort((a,b)=>b[1]-a[1]).slice(0,3)
