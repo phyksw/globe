@@ -40,7 +40,7 @@ const GLOBE_THEMES = [
     cardBg:'radial-gradient(120% 100% at 50% 38%, #0d1730 0%, #070c18 64%, #04060e 100%)',
     halo:'rgba(53,220,255,0.16)', hudAccent:'#84e9ff', selectedPin:'#ffffff', swatch:'#16294a' },
 ];
-let _themeIdx = 0;
+let _themeIdx = Math.max(0, GLOBE_THEMES.findIndex(t=>t.name==='Tactical Navy'));   // default palette
 let GT = GLOBE_THEMES[_themeIdx];
 const SECTOR_ORDER = ['AI','자율주행','우주','양자','반도체','데이터센터','방산','기타'];
 const TYPE_ORDER = ['계약','출시','매출','화제'];
@@ -440,7 +440,7 @@ function buildPaletteBar(){ const bar=$('paletteBar'); if(!bar) return; bar.inne
   GLOBE_THEMES.forEach((t,i)=>{ const s=document.createElement('button'); s.type='button';
     s.className='sw'+(i===_themeIdx?' active':''); s.style.background=t.swatch; s.title=t.label||t.name;
     s.setAttribute('aria-label', t.label||t.name);
-    s.onclick=()=>{ _themeIdx=i; try{localStorage.setItem('globeTheme',i);}catch(e){} applyGlobeTheme(t); buildPaletteBar(); };
+    s.onclick=()=>{ _themeIdx=i; try{localStorage.setItem('gtheme',i);}catch(e){} applyGlobeTheme(t); buildPaletteBar(); };
     bar.appendChild(s); });
 }
 
@@ -474,7 +474,7 @@ function loop(now){
 }
 
 /* ---- go ---- */
-try{const _ti=+localStorage.getItem('globeTheme'); if(_ti>=0&&_ti<GLOBE_THEMES.length) _themeIdx=_ti;}catch(e){}
+try{const raw=localStorage.getItem('gtheme'); if(raw!=null){ const _ti=+raw; if(_ti>=0&&_ti<GLOBE_THEMES.length) _themeIdx=_ti; }}catch(e){}
 syncBtns(); buildPaletteBar(); applyGlobeTheme(GLOBE_THEMES[_themeIdx]); resize();
 requestAnimationFrame(resize); setTimeout(resize,150); setTimeout(resize,500);
 requestAnimationFrame(loop);
