@@ -1,0 +1,7 @@
+name = "globe"
+compatibility_date = "2025-06-01"
+
+# Static-assets-only Worker: serve the repo's static files (index.html + assets).
+# `npx wrangler deploy` uploads everything in `directory`, minus the patterns in .assetsignore.
+[assets]
+directory = "."

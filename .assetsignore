@@ -1,0 +1,19 @@
+# Files NOT served as static assets (so the public site is just the app).
+node_modules
+.git
+.gitignore
+.claude
+.assetsignore
+wrangler.toml
+README.md
+# data pipeline / dev tooling (not needed at runtime)
+package.json
+package-lock.json
+server.js
+parse.js
+enrich.js
+build-data.js
+news_raw.html
+news_parsed.json
+news_enriched.json
+data/countries.geojson
