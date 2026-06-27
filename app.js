@@ -35,6 +35,10 @@ const GLOBE_THEMES = [
     landCap:'rgba(11,50,52,0.97)', landSide:'rgba(6,31,34,1)', landStroke:'rgba(94,234,212,0.6)',
     cardBg:'radial-gradient(120% 120% at 30% 18%, #ff8c5e 0%, #ec5836 38%, #bf3527 72%, #7a211f 100%)',
     halo:'rgba(255,173,120,0.45)', hudAccent:'#fff1e6', selectedPin:'#38e0d6', swatch:'#dc5436' },
+  { name:'Tactical Navy', label:'택티컬', darkGlobe:true, stars:true, ocean:'#0a1626',
+    landCap:'rgba(66,90,126,0.42)', landSide:'rgba(38,54,80,0.5)', landStroke:'rgba(156,184,218,0.6)',
+    cardBg:'radial-gradient(120% 100% at 50% 38%, #0d1730 0%, #070c18 64%, #04060e 100%)',
+    halo:'rgba(53,220,255,0.16)', hudAccent:'#84e9ff', selectedPin:'#ffffff', swatch:'#16294a' },
 ];
 let _themeIdx = 0;
 let GT = GLOBE_THEMES[_themeIdx];
@@ -112,7 +116,7 @@ function _hslRgb(h,s,l){ let r,g,b; if(s===0){r=g=b=l;} else { const q=l<.5?l*(1
   const f=t=>{ if(t<0)t+=1; if(t>1)t-=1; if(t<1/6)return p+(q-p)*6*t; if(t<1/2)return q; if(t<2/3)return p+(q-p)*(2/3-t)*6; return p; };
   r=f(h+1/3);g=f(h);b=f(h-1/3); } return [Math.round(r*255),Math.round(g*255),Math.round(b*255)]; }
 function deepen(hex){ const [h,s,l]=_rgbHsl(..._hexRgb(hex)); const [r,g,b]=_hslRgb(h,Math.min(1,Math.max(s,.72)),Math.min(l,.40)); return `rgb(${r},${g},${b})`; }
-function lineColor(hex){ return GT.darkGlobe ? hexA(hex,0.95) : deepen(hex); }
+function lineColor(hex){ return GT.darkGlobe ? hex : deepen(hex); }   // dark globe: full-opacity bright; light: deepened
 const hexRGB = hex => { const n=parseInt(hex.slice(1),16); return `${n>>16&255},${n>>8&255},${n&255}`; };
 let _active = new Set(), _domSector = {};
 
@@ -234,7 +238,7 @@ function buildArcs(){
     // arrow at the same constant altitude rides the rendered line exactly.
     const va=llToVec(it.lat,it.lng), vb=llToVec(a.lat,a.lng);
     const pts=[]; for(let k=0;k<=48;k++){ const tt=k/48, [pla,pln]=vecToLL(slerp(va,vb,tt)); pts.push([pla,pln, LINE_ALT]); }
-    out.push({ color:SECTOR_COLORS[it.sector], stroke:(focus?2.2:1.45)*(GT.darkGlobe?1:1.3), gap0:(out.length*0.37)%1,
+    out.push({ color:SECTOR_COLORS[it.sector], stroke:(focus?2.8:2.2)*(GT.darkGlobe?1:1.12), gap0:(out.length*0.37)%1,
       va, vb, _pts:pts,
       label:`<div class="gl-tip"><div class="t-title">${it.title}</div><div class="t-co">${FLAG[it.country]} → ${FLAG[a.to]} ${KO[a.to]||a.to}</div></div>` }); }));
   return out;
@@ -428,6 +432,7 @@ function applyGlobeTheme(t){
   if(c){ c.style.background=t.cardBg; c.style.setProperty('--halo', t.halo); }
   document.documentElement.style.setProperty('--hud-accent', t.hudAccent);
   document.body.classList.toggle('glb-dark', !!t.darkGlobe);
+  const st=$('globeStars'); if(st) st.style.opacity = t.stars?'1':'0';   // starfield only for Tactical Navy
   render();
 }
 function buildPaletteBar(){ const bar=$('paletteBar'); if(!bar) return; bar.innerHTML='';

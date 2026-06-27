@@ -147,6 +147,17 @@ body{font-family:var(--sans);color:var(--text);overflow:hidden;letter-spacing:-.
   background:radial-gradient(48% 60% at 50% 45%,var(--halo,rgba(116,174,230,.2)) 0%,transparent 72%)}
 #globe{position:absolute;inset:0;z-index:1}
 #globe canvas{outline:none}
+/* starfield overlay (shown only for the Tactical Navy palette) */
+.globe-stars{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .35s;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 28% 64%,rgba(255,255,255,.45),transparent),
+    radial-gradient(1.4px 1.4px at 44% 14%,rgba(180,220,255,.6),transparent),
+    radial-gradient(1px 1px at 62% 78%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 73% 32%,rgba(255,255,255,.45),transparent),
+    radial-gradient(1.3px 1.3px at 86% 58%,rgba(200,230,255,.6),transparent),
+    radial-gradient(1px 1px at 92% 18%,rgba(255,255,255,.45),transparent),
+    radial-gradient(1px 1px at 8% 84%,rgba(255,255,255,.4),transparent)}
 
 /* minimal clean HUD (light pills over the bright globe) */
 .hud{position:absolute;inset:0;pointer-events:none;z-index:3;font-family:var(--mono);color:var(--hud-accent,var(--teal-deep))}
