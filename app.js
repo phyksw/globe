@@ -117,6 +117,7 @@ function _hslRgb(h,s,l){ let r,g,b; if(s===0){r=g=b=l;} else { const q=l<.5?l*(1
   r=f(h+1/3);g=f(h);b=f(h-1/3); } return [Math.round(r*255),Math.round(g*255),Math.round(b*255)]; }
 function deepen(hex){ const [h,s,l]=_rgbHsl(..._hexRgb(hex)); const [r,g,b]=_hslRgb(h,Math.min(1,Math.max(s,.72)),Math.min(l,.40)); return `rgb(${r},${g},${b})`; }
 function lineColor(hex){ return GT.darkGlobe ? hex : deepen(hex); }   // dark globe: full-opacity bright; light: deepened
+function lightenA(hex,amt,a){ const [r,g,b]=_hexRgb(hex); const m=v=>Math.round(v+(255-v)*amt); return `rgba(${m(r)},${m(g)},${m(b)},${a})`; }
 const hexRGB = hex => { const n=parseInt(hex.slice(1),16); return `${n>>16&255},${n>>8&255},${n&255}`; };
 let _active = new Set(), _domSector = {};
 
@@ -197,13 +198,18 @@ function recomputeGeo(){
 let LAND_CAP=GT.landCap, LAND_SIDE=GT.landSide, LAND_STROKE=GT.landStroke;   // set per palette by applyGlobeTheme
 // Jeju/Dokdo (_x) are tagged South Korea, so they highlight together with the mainland.
 function capColor(f){ const iso=isoOf(f);
-  if(iso && _active.has(iso)){ const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? hexA(c,0.85):hexA(c,0.6); }
+  if(iso && _active.has(iso)){ const sel=selItem();
+    if(sel && state.selected!=null && iso===hiCountry()){       // focused news -> extra-bright, eye-catching chip
+      const sc=SECTOR_COLORS[sel.sector]||'#ffb454'; return GT.darkGlobe ? lightenA(sc,0.40,0.96) : hexA(sc,0.95); }
+    const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? hexA(c,0.85):hexA(c,0.6); }
   return LAND_CAP; }                                             // near-white land on light ocean
 function sideColor(f){ const iso=isoOf(f);
   if(iso && _active.has(iso)) return hexA(SECTOR_COLORS[_domSector[iso]]||'#ffb454', 0.3);
   return LAND_SIDE; }
 function strokeColor(f){ const iso=isoOf(f);
-  if(iso && _active.has(iso)){ const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? c:hexA(c,0.85); }
+  if(iso && _active.has(iso)){ const sel=selItem();
+    if(sel && state.selected!=null && iso===hiCountry()){ const sc=SECTOR_COLORS[sel.sector]||'#ffb454'; return GT.darkGlobe ? lightenA(sc,0.55,1) : sc; }
+    const c=SECTOR_COLORS[_domSector[iso]]||'#ffb454'; return iso===hiCountry()? c:hexA(c,0.85); }
   return LAND_STROKE; }                                          // bold, always-visible coastlines
 // keep highlighted territory BELOW the deal lines (LINE_ALT 0.025 / ARROW_ALT 0.028) so arcs ride over it, not under.
 function polyAlt(f){ const iso=isoOf(f); if(iso && _active.has(iso)) return iso===hiCountry()? 0.018:0.012; return 0.006; }
