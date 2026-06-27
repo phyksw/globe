@@ -103,6 +103,16 @@ const selItem = () => state.selected==null ? null : ITEMS[state.selected];
 const hiCountry = () => state.country || (selItem() ? selItem().country : null);
 const countBy = (items,key) => { const m={}; items.forEach(it=>m[it[key]]=(m[it[key]]||0)+1); return m; };
 const hexA = (hex,a) => { const n=parseInt(hex.slice(1),16); return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`; };
+// deal-line color: bright on dark globes, DEEPENED (cap lightness, keep hue) on light globes so lines read.
+function _hexRgb(hex){ const n=parseInt(hex.slice(1),16); return [n>>16&255,n>>8&255,n&255]; }
+function _rgbHsl(r,g,b){ r/=255;g/=255;b/=255; const mx=Math.max(r,g,b),mn=Math.min(r,g,b); let h,s,l=(mx+mn)/2;
+  if(mx===mn){h=s=0;} else { const d=mx-mn; s=l>.5?d/(2-mx-mn):d/(mx+mn);
+    h=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4; h/=6; } return [h,s,l]; }
+function _hslRgb(h,s,l){ let r,g,b; if(s===0){r=g=b=l;} else { const q=l<.5?l*(1+s):l+s-l*s,p=2*l-q;
+  const f=t=>{ if(t<0)t+=1; if(t>1)t-=1; if(t<1/6)return p+(q-p)*6*t; if(t<1/2)return q; if(t<2/3)return p+(q-p)*(2/3-t)*6; return p; };
+  r=f(h+1/3);g=f(h);b=f(h-1/3); } return [Math.round(r*255),Math.round(g*255),Math.round(b*255)]; }
+function deepen(hex){ const [h,s,l]=_rgbHsl(..._hexRgb(hex)); const [r,g,b]=_hslRgb(h,Math.min(1,Math.max(s,.72)),Math.min(l,.40)); return `rgb(${r},${g},${b})`; }
+function lineColor(hex){ return GT.darkGlobe ? hexA(hex,0.95) : deepen(hex); }
 const hexRGB = hex => { const n=parseInt(hex.slice(1),16); return `${n>>16&255},${n>>8&255},${n&255}`; };
 let _active = new Set(), _domSector = {};
 
@@ -141,7 +151,7 @@ const globe = Globe()(elGlobe)
   .ringPropagationSpeed(2.4).ringRepeatPeriod(780)
   // deal lines as PATHS — we control per-point altitude so arrows ride the EXACT same curve
   .pathsData([]).pathPoints(d=>d._pts).pathPointLat(p=>p[0]).pathPointLng(p=>p[1]).pathPointAlt(p=>p[2])
-  .pathColor(d=>hexA(d.color,0.9)).pathStroke(d=>d.stroke)
+  .pathColor(d=>lineColor(d.color)).pathStroke(d=>d.stroke)
   .pathDashLength(0.9).pathDashGap(0.06).pathDashInitialGap(d=>d.gap0).pathDashAnimateTime(3000)  // mostly-solid, gentle flow
   .pathLabel(d=>d.label).pathTransitionDuration(0)
   // moon + landmark labels
@@ -224,7 +234,7 @@ function buildArcs(){
     // arrow at the same constant altitude rides the rendered line exactly.
     const va=llToVec(it.lat,it.lng), vb=llToVec(a.lat,a.lng);
     const pts=[]; for(let k=0;k<=48;k++){ const tt=k/48, [pla,pln]=vecToLL(slerp(va,vb,tt)); pts.push([pla,pln, LINE_ALT]); }
-    out.push({ color:SECTOR_COLORS[it.sector], stroke:focus?1.7:1.05, gap0:(out.length*0.37)%1,
+    out.push({ color:SECTOR_COLORS[it.sector], stroke:(focus?2.2:1.45)*(GT.darkGlobe?1:1.3), gap0:(out.length*0.37)%1,
       va, vb, _pts:pts,
       label:`<div class="gl-tip"><div class="t-title">${it.title}</div><div class="t-co">${FLAG[it.country]} → ${FLAG[a.to]} ${KO[a.to]||a.to}</div></div>` }); }));
   return out;
@@ -249,8 +259,9 @@ function htmlEl(d){
   if(d.kind==='arrow'){   // small direction chevron (rotated to flow direction in loop)
     el.style.cssText='pointer-events:none;width:0;height:0;transition:opacity .12s';
     const inner=document.createElement('div'); inner.style.cssText='position:absolute;left:0;top:0;transform:translate(-50%,-50%)';
-    inner.innerHTML=`<svg width="13" height="13" viewBox="0 0 14 14" style="display:block;filter:drop-shadow(0 0 1.5px rgba(0,0,0,.85))">`
-      +`<path d="M3 1.8 L12.2 7 L3 12.2 L5.6 7 Z" fill="${d.color}" stroke="#0a1322" stroke-width="0.8" stroke-linejoin="round"/></svg>`;
+    const aFill=GT.darkGlobe?d.color:deepen(d.color), aStroke=GT.darkGlobe?'#0a1322':'rgba(255,255,255,.92)';
+    inner.innerHTML=`<svg width="15" height="15" viewBox="0 0 14 14" style="display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))">`
+      +`<path d="M3 1.8 L12.2 7 L3 12.2 L5.6 7 Z" fill="${aFill}" stroke="${aStroke}" stroke-width="1.1" stroke-linejoin="round"/></svg>`;
     el.appendChild(inner); d._inner=inner; d._el=el; return el;
   }
   if(d.kind==='moon'){
