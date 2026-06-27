@@ -170,6 +170,11 @@ body{font-family:var(--sans);color:var(--text);overflow:hidden;letter-spacing:-.
 .hud .feed{left:16px;top:14px}
 .hud .feed .dot{width:7px;height:7px;border-radius:50%;background:#16c08a;box-shadow:0 0 8px rgba(22,192,138,.7);animation:blink 1.4s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+/* selected-news pin glow (pulsing halo) */
+.sel-glow{width:50px;height:50px;border-radius:50%;
+  background:radial-gradient(circle, var(--gc) 0%, color-mix(in srgb, var(--gc) 55%, transparent) 26%, transparent 66%);
+  mix-blend-mode:screen;animation:selglow 1.3s ease-in-out infinite;will-change:transform,opacity}
+@keyframes selglow{0%,100%{opacity:.5;transform:scale(.78)}50%{opacity:1;transform:scale(1.22)}}
 .hud .readout{right:16px;top:14px;flex-direction:column;align-items:flex-end;gap:3px;border-radius:12px}
 .hud .readout .row{display:flex;gap:8px}
 .hud .readout .row .lbl{min-width:34px;text-align:right;color:var(--mute)}

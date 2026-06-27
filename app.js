@@ -18,11 +18,11 @@ const GLOBE_THEMES = [
   { name:'Deep Teal Jewel', label:'딥 틸 주얼', darkGlobe:true, ocean:'#0b6b65',
     landCap:'rgba(255,243,222,0.97)', landSide:'rgba(193,147,107,0.92)', landStroke:'rgba(255,107,94,0.95)',
     cardBg:'radial-gradient(130% 130% at 30% 18%, #11857d 0%, #0b6b65 42%, #07504a 74%, #06403b 100%)',
-    halo:'rgba(64,233,211,0.42)', hudAccent:'#2cf0d8', selectedPin:'#fff1d6', swatch:'#0b6b65' },
+    halo:'rgba(64,233,211,0.42)', hudAccent:'#2cf0d8', selectedPin:'#ffd633', swatch:'#0b6b65' },
   { name:'Royal Indigo', label:'로열 인디고', darkGlobe:true, ocean:'#241a63',
     landCap:'rgba(201,190,246,0.97)', landSide:'rgba(122,102,194,0.95)', landStroke:'rgba(251,191,60,0.95)',
     cardBg:'radial-gradient(120% 120% at 50% 26%, #2e2280 0%, #211a5e 42%, #15103f 78%, #0e0a2c 100%)',
-    halo:'rgba(167,139,250,0.30)', hudAccent:'#fbbf24', selectedPin:'#ffe27a', swatch:'#241a63' },
+    halo:'rgba(167,139,250,0.30)', hudAccent:'#fbbf24', selectedPin:'#3fe9ff', swatch:'#241a63' },
   { name:'Aqua Mint Pop', label:'아쿠아 민트', darkGlobe:false, ocean:'#1bc6d6',
     landCap:'rgba(255,255,255,0.97)', landSide:'rgba(198,238,240,0.95)', landStroke:'rgba(9,104,106,0.92)',
     cardBg:'radial-gradient(circle at 50% 36%, #f2fffd 0%, #ddf8f7 45%, #c2eff0 100%)',
@@ -30,7 +30,7 @@ const GLOBE_THEMES = [
   { name:'Graphite Jewel', label:'그래파이트', darkGlobe:true, ocean:'#1e242e',
     landCap:'rgba(244,248,252,0.98)', landSide:'rgba(148,163,184,0.85)', landStroke:'rgba(34,41,52,0.95)',
     cardBg:'radial-gradient(120% 120% at 30% 18%, #2b3340 0%, #232a35 42%, #171c25 100%)',
-    halo:'rgba(120,150,190,0.30)', hudAccent:'#e6edf6', selectedPin:'#ffffff', swatch:'#1e242e' },
+    halo:'rgba(120,150,190,0.30)', hudAccent:'#e6edf6', selectedPin:'#ffd633', swatch:'#1e242e' },
   { name:'Sunset Coral', label:'선셋 코랄', darkGlobe:true, ocean:'#dc5436',
     landCap:'rgba(11,50,52,0.97)', landSide:'rgba(6,31,34,1)', landStroke:'rgba(94,234,212,0.6)',
     cardBg:'radial-gradient(120% 120% at 30% 18%, #ff8c5e 0%, #ec5836 38%, #bf3527 72%, #7a211f 100%)',
@@ -38,7 +38,7 @@ const GLOBE_THEMES = [
   { name:'Tactical Navy', label:'택티컬', darkGlobe:true, stars:true, ocean:'#0a1626',
     landCap:'rgba(66,90,126,0.42)', landSide:'rgba(38,54,80,0.5)', landStroke:'rgba(156,184,218,0.6)',
     cardBg:'radial-gradient(120% 100% at 50% 38%, #0d1730 0%, #070c18 64%, #04060e 100%)',
-    halo:'rgba(53,220,255,0.16)', hudAccent:'#84e9ff', selectedPin:'#ffffff', swatch:'#16294a' },
+    halo:'rgba(53,220,255,0.16)', hudAccent:'#84e9ff', selectedPin:'#ffe14d', swatch:'#16294a' },
 ];
 let _themeIdx = Math.max(0, GLOBE_THEMES.findIndex(t=>t.name==='Tactical Navy'));   // default palette
 let GT = GLOBE_THEMES[_themeIdx];
@@ -247,7 +247,7 @@ function buildArcs(){
 
 /* ---- moon + flying orbs (htmlElements) ---- */
 const MOON = { kind:'moon', inc:18, node:35, alt:2.0, lat:0, lng:0, _el:null };
-let ARCS = [], ARROWS = [];
+let ARCS = [], ARROWS = [], SELGLOW = [];
 function rebuildArrows(){   // arrows only in focused views (sector/country/news) — the all-overview stays line-only
   const allOverview = state.showArcs && state.sector==='all' && !state.country && state.selected==null;
   ARROWS = allOverview ? [] : ARCS.slice(0,40).map((arc,i) => ({ kind:'arrow', arc, color:arc.color, base:(i*0.146)%1,
@@ -277,6 +277,12 @@ function htmlEl(d){
       +'<span style="position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(110,106,98,.55);left:9px;top:8px"></span>'
       +'<span style="position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(110,106,98,.5);left:21px;top:18px"></span>'
       +'<span style="position:absolute;width:3.5px;height:3.5px;border-radius:50%;background:rgba(110,106,98,.45);left:13px;top:23px"></span></div>';
+    d._el=el; return el;
+  }
+  if(d.kind==='glow'){   // pulsing glow halo on the selected news pin
+    el.style.cssText='pointer-events:none;width:0;height:0;transition:opacity .2s';
+    el.innerHTML='<div style="position:absolute;left:0;top:0;transform:translate(-50%,-50%)">'
+      +'<div class="sel-glow" style="--gc:'+d.color+'"></div></div>';
     d._el=el; return el;
   }
   return el;   // (no other element kinds)
@@ -403,7 +409,8 @@ function render(){
   const s=selItem();
   globe.ringsData(s ? [{lat:s.lat,lng:s.lng,rgb:hexRGB(SECTOR_COLORS[s.sector])}] : []);
   ARCS = buildArcs(); globe.pathsData(ARCS); rebuildArrows();
-  globe.htmlElementsData([MOON, ...LANDMARK_ELS, ...ARROWS]);
+  SELGLOW = s ? [{kind:'glow', lat:s._jlat, lng:s._jlng, alt:0.12, color:GT.selectedPin}] : [];
+  globe.htmlElementsData([MOON, ...LANDMARK_ELS, ...ARROWS, ...SELGLOW]);
   renderSectorBars(); renderTypeChips(); renderFocus(); renderTimeline(); renderActivePills();
   const vis=visible();
   $('hStat').textContent=vis.length; $('hCo').textContent=new Set(vis.map(i=>i.country)).size;
@@ -460,9 +467,10 @@ function loop(now){
       const [la,ln]=vecToLL(slerp(ar.arc.va,ar.arc.vb,tt)); ar.lat=la; ar.lng=ln; ar.alt=ARROW_ALT;
       const [la2,ln2]=vecToLL(slerp(ar.arc.va,ar.arc.vb,tt2)); ar._t2=[la2,ln2,ARROW_ALT];
       ar._fade=Math.max(0,Math.min(1, tt/0.08, (1-tt)/0.08)); });
-    globe.htmlElementsData([MOON, ...LANDMARK_ELS, ...ARROWS]);
+    globe.htmlElementsData([MOON, ...LANDMARK_ELS, ...ARROWS, ...SELGLOW]);
     if(MOON._el) MOON._el.style.opacity=behindEarth(MOON)?'0':'1';
     LANDMARK_ELS.forEach(d=>{ if(d._el) d._el.style.opacity=behindEarth(d)?'0':'1'; });
+    SELGLOW.forEach(g=>{ if(g._el) g._el.style.opacity=behindEarth(g)?'0':'1'; });
     ARROWS.forEach(ar=>{ if(!ar._el) return; const back=behindEarth(ar);
       ar._el.style.opacity = back ? '0' : String(ar._fade);
       if(!back && ar._inner){ const s1=globe.getScreenCoords(ar.lat,ar.lng,ar.alt), s2=globe.getScreenCoords(ar._t2[0],ar._t2[1],ar._t2[2]);
