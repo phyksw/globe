@@ -225,8 +225,8 @@ function pointLabel(d){
 /* ---- arcs: auto-show by filter/selection ---- */
 function buildArcs(){
   const sel=selItem(); let src;
-  if(state.sector!=='all' || state.country) src = visible();       // filter active -> ONLY its connections
-  else if(sel) src = [sel];                                        // single news -> its connections
+  if(sel) src = [sel];                                             // a news is focused -> ONLY its own connections
+  else if(state.sector!=='all' || state.country) src = visible();  // sector/country filter -> its connections
   else if(state.showArcs) src = ITEMS;                             // overview-all only when nothing filtered
   else src = [];                                                   // clean default
   const out=[];
@@ -394,7 +394,10 @@ function setType(t){ state.type=t; if(state.selected!=null&&!matchTF(ITEMS[state
 function toggleCountry(iso){ state.country=(state.country===iso)?null:iso;
   if(state.selected!=null&&!matchCF(ITEMS[state.selected])) state.selected=null; render();
   if(state.country){ const c=COUNTRIES[iso]; if(c) flyTo(c.lat,c.lng,1.9); } }
-function selectNews(id){ state.selected=(state.selected===id)?null:id; render();
+function selectNews(id){
+  if(state.selected===id){ state.selected=null; state.sector='all'; state.country=null; }        // toggle off -> back to overview
+  else { const n=ITEMS[id]; state.selected=id; state.sector=n.sector; state.country=n.country; }  // focus a news -> press ONLY its sector + country
+  render();
   const it=selItem(); if(it){ flyTo(it.lat,it.lng,1.6); const card=cardRefs.get(id); if(card) card.scrollIntoView({behavior:'smooth',block:'center'}); } }
 function flyTo(lat,lng,alt){ state.rotate=false; ctrl.autoRotate=false; syncBtns(); globe.pointOfView({lat,lng,altitude:alt},950); }
 function resetAll(){ state.sector='all'; state.type='all'; state.country=null; state.selected=null; state.showArcs=false; render(); flyTo(24,-42,2.6); }
