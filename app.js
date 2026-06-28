@@ -193,6 +193,7 @@ function recomputeGeo(){
   const byC = {};
   vis.forEach(it => { (byC[it.country]=byC[it.country]||{})[it.sector]=(byC[it.country][it.sector]||0)+1; });
   for (const iso in byC) _domSector[iso] = Object.entries(byC[iso]).sort((a,b)=>b[1]-a[1])[0][0];
+  const sel=selItem(); if(sel) _domSector[sel.country]=sel.sector;   // focused news -> its country shows the NEWS's own sector color (even while sector stays '전체')
 }
 let LAND_CAP=GT.landCap, LAND_SIDE=GT.landSide, LAND_STROKE=GT.landStroke;   // set per palette by applyGlobeTheme
 // Jeju/Dokdo (_x) are tagged South Korea, so they highlight together with the mainland.
@@ -395,8 +396,8 @@ function toggleCountry(iso){ state.country=(state.country===iso)?null:iso;
   if(state.selected!=null&&!matchCF(ITEMS[state.selected])) state.selected=null; render();
   if(state.country){ const c=COUNTRIES[iso]; if(c) flyTo(c.lat,c.lng,1.9); } }
 function selectNews(id){
-  if(state.selected===id){ state.selected=null; state.sector='all'; state.country=null; }        // toggle off -> back to overview
-  else { const n=ITEMS[id]; state.selected=id; state.sector=n.sector; state.country=n.country; }  // focus a news -> press ONLY its sector + country
+  if(state.selected===id){ state.selected=null; state.country=null; }      // toggle off -> drop country focus (keep sector filter as-is)
+  else { const n=ITEMS[id]; state.selected=id; state.country=n.country; }  // focus a news -> highlight ONLY its country; do NOT touch the sector filter
   render();
   const it=selItem(); if(it){ flyTo(it.lat,it.lng,1.6); const card=cardRefs.get(id); if(card) card.scrollIntoView({behavior:'smooth',block:'center'}); } }
 function flyTo(lat,lng,alt){ state.rotate=false; ctrl.autoRotate=false; syncBtns(); globe.pointOfView({lat,lng,altitude:alt},950); }
