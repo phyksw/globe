@@ -1,6 +1,72 @@
 [
   {
     "id": 0,
+    "sector": "AI",
+    "type": "출시",
+    "color": "mint",
+    "icon": "🌶️",
+    "date": "6/26",
+    "title": "OpenAI, GPT-5.6 'Sol·Terra·Luna' 정부 제한하 공개",
+    "summary": [
+      "OpenAI가 6/26 차세대 GPT-5.6을 Sol·Terra·Luna 3종으로 공개 — 미국 정부 요청으로 접근 제한",
+      "최상위 Sol은 사이버보안 특화 — 취약점 연구·익스플로잇 등 장기 보안작업서 SOTA, 앤트로픽 Mythos Preview와 경쟁하며 출력토큰 약 1/3 적게 사용",
+      "Terra는 GPT-5.5급 성능을 절반 비용에, Luna는 속도·가격 최적화 저가형",
+      "초기엔 정부 승인을 받은 소수(약 20곳) 신뢰 파트너에게만 Codex·API로 제공",
+      "Sol이 TerminalBench 2.1서 신기록 — 정식 일반공개(GA)는 '수 주 내' 예고"
+    ],
+    "deep": [
+      "앤트로픽 Fable 5·Mythos 5 수출통제(6/12)에 이어 OpenAI도 최상위 모델을 정부 통제하에 내놓는 패턴이 반복됨",
+      "OpenAI는 행정부와 '사이버 행정명령' 프레임워크를 함께 다듬는 중이라 밝힘",
+      "고위험 활동에 대한 안전장치를 강화한 채 출시 — 능력 상승과 오남용 방지를 함께 묶은 구조"
+    ],
+    "src": "📰 OpenAI · Axios · Thurrott"
+  },
+  {
+    "id": 1,
+    "sector": "AI",
+    "type": "출시",
+    "color": "mint",
+    "icon": "🕹️",
+    "date": "6/26",
+    "title": "OpenAI, ChatGPT '에이전트 모드' 통합 출시",
+    "summary": [
+      "OpenAI가 6/26 ChatGPT에 'agent mode'를 출시 — 작성창 도구 드롭다운에서 대화 중 언제든 켜는 방식",
+      "웹을 클릭·입력하는 'Operator'와 정보종합 'deep research'를 하나의 에이전트로 통합",
+      "ChatGPT가 자체 가상 컴퓨터에서 추론과 행동을 오가며 일정 브리핑·장보기·경쟁사 분석+슬라이드 작성 등 다단계 작업 수행",
+      "Pro·Plus·Team·Business·Enterprise·Edu에 지원 국가 전역 제공",
+      "같은 날 Codex Remote 전 요금제 일반공개(폰에서 Mac·Windows 작업 이어가기)·GPT-4.5 ChatGPT서 퇴역"
+    ],
+    "deep": [
+      "화면에 실시간 내레이션으로 진행 과정을 보여주고, 사용자가 도중 개입해 브라우저를 직접 제어 가능",
+      "강화학습으로 웹 상호작용·프로그래밍 도구를 함께 학습시킨 단일 시스템",
+      "추천을 넘어 '대신 실행하는' 에이전트를 소비자 ChatGPT 본체에 기본 탑재한 행보"
+    ],
+    "src": "📰 OpenAI Help Center · Releasebot"
+  },
+  {
+    "id": 2,
+    "sector": "우주",
+    "type": "화제",
+    "color": "grape",
+    "icon": "📶",
+    "date": "6/26",
+    "title": "스페이스X, 스타링크 소비자용 휴대폰 서비스 검토",
+    "summary": [
+      "스페이스X 사장 그윈 숏웰이 IPO 로드쇼에서 '스타링크 브랜드 소비자용 이동통신 서비스'를 적극 검토 중이라고 발언(6/26 보도)",
+      "주체는 스페이스X — AT&T·버라이즌·T-모바일 '빅3' 통신사에 직접 도전하는 구도",
+      "기반은 EchoStar서 확보한 $17B(약 26조·환율 1,519원) 주파수 65MHz(FCC 승인)",
+      "위성 직접연결(Direct to Cell)로 일반 LTE폰이 위성에 바로 접속하는 기술이 핵심 축",
+      "도심은 직접 지상 기지국망(셀룰러 인프라)까지 구축하는 하이브리드망도 검토"
+    ],
+    "deep": [
+      "기존 B2B(통신사에 용량 도매)·기내 와이파이를 넘어 '스페이스X가 직접 소비자에게 요금제 판매'로 전환하는 전략 변화",
+      "다만 가격·출시 시점 등 상용 조건은 미확정 — 지상망 구축에 막대한 투자가 필요한 점이 변수",
+      "'Starlink Mobile'·'Powered by Starlink' 상표 출원(2025.10)으로 소비자 브랜드 준비가 진행돼 온 정황"
+    ],
+    "src": "📰 Android Authority · TechTimes · The Tech Portal (6/26~27)"
+  },
+  {
+    "id": 3,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -22,7 +88,51 @@
     "src": "📰 Electrek · TechCrunch · Bloomberg (6/26)"
   },
   {
-    "id": 1,
+    "id": 4,
+    "sector": "AI",
+    "type": "화제",
+    "color": "mint",
+    "icon": "🕵️",
+    "date": "6/24",
+    "title": "앤트로픽, '알리바바가 Claude 불법 추출' 의회 고발",
+    "summary": [
+      "앤트로픽이 6/24 美 상원 은행위·백악관에 서한 — 알리바바가 Claude를 '뻔뻔하게·불법적으로' 추출 시도했다고 고발",
+      "알리바바 Qwen랩 연계 운영자가 4/22~6/5 가짜 계정 약 25,000개로 Claude와 2,880만 건 주고받음",
+      "코딩·에이전트 추론 등 Claude 핵심 능력을 노린 '적대적 증류(distillation)' 수법 — 응답을 긁어 Qwen 학습에 재사용 주장",
+      "앤트로픽은 '중국 기업의 미 선두랩 무임승차 최대 시도'라고 규정",
+      "알리바바는 무대응 — 헤거티·김(앤디 킴) 상원의원은 제재 대상 추가 수정안 추진"
+    ],
+    "deep": [
+      "앤트로픽이 제품을 중국에 내지 않기로 한 결정을 우회하려는 대규모 캠페인이라는 게 핵심 주장",
+      "백악관 OSTP가 두 달 전 '산업규모 증류 탐지·공동대응' 메모를 낸 직후 터진 사안",
+      "오픈웨이트 중국 모델 급부상의 이면에 '증류 의존' 논쟁이 정책·안보 이슈로 비화"
+    ],
+    "src": "📰 CNBC · Bloomberg · TechTimes"
+  },
+  {
+    "id": 5,
+    "sector": "데이터센터",
+    "type": "매출",
+    "color": "leaf",
+    "icon": "⚡",
+    "date": "6/24",
+    "title": "GE버노바 가스터빈, AI발 수요로 2031년까지 예약 만석",
+    "summary": [
+      "GE Vernova 가스터빈 슬롯이 AI 데이터센터 수요로 2030~2031년까지 사실상 만석",
+      "AI·데이터센터 부하가 가스터빈 백로그의 약 20% 차지",
+      "1분기 전기화 부문서 데이터센터향 설비 수주 $2.4B — 작년 연간 전체보다 많음",
+      "가스터빈 가격이 3년 새 약 300%(kW당) 급등, 2026 신규수주는 추가 10~20%p↑",
+      "Crusoe가 LM2500XPRESS 터빈 29기(약 1GW)를 텍사스 AI발전용으로 발주"
+    ],
+    "deep": [
+      "전력설비가 새로운 AI 인프라 병목으로 부상하며 터빈 제조사가 수혜 집중",
+      "CEO는 2026년 수주 단가가 2025년 4분기 대비 dollar/kW 기준 10~20%p 높을 것이라 언급",
+      "'AI 전력 슈퍼사이클'이 칩을 넘어 발전·송배전 설비로 확산되는 단면"
+    ],
+    "src": "📰 CNBC · Power Engineering · Utility Dive"
+  },
+  {
+    "id": 6,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -44,7 +154,7 @@
     "src": "📰 CNBC · TechCrunch · Tom's Hardware · OpenAI/Broadcom"
   },
   {
-    "id": 2,
+    "id": 7,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -66,7 +176,7 @@
     "src": "📰 CNN (6/24) · Reuters · CNBC"
   },
   {
-    "id": 3,
+    "id": 8,
     "sector": "우주",
     "type": "매출",
     "color": "grape",
@@ -88,7 +198,7 @@
     "src": "📰 Spaceflight Now · Space.com"
   },
   {
-    "id": 4,
+    "id": 9,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -110,7 +220,7 @@
     "src": "📰 Department of Energy · The Quantum Insider · HPCwire"
   },
   {
-    "id": 5,
+    "id": 10,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -132,7 +242,7 @@
     "src": "📰 Anthropic · Fortune · Neowin · DataCamp"
   },
   {
-    "id": 6,
+    "id": 11,
     "sector": "우주",
     "type": "출시",
     "color": "grape",
@@ -154,7 +264,7 @@
     "src": "📰 TechTimes · Teslarati"
   },
   {
-    "id": 7,
+    "id": 12,
     "sector": "우주",
     "type": "계약",
     "color": "grape",
@@ -176,7 +286,51 @@
     "src": "📰 Axios · Teslarati · Motley Fool"
   },
   {
-    "id": 8,
+    "id": 13,
+    "sector": "자율주행",
+    "type": "출시",
+    "color": "rose",
+    "icon": "🚖",
+    "date": "6/22",
+    "title": "테슬라, 오스틴 로보택시 1년 만에 안전요원 완전 제거",
+    "summary": [
+      "테슬라가 오스틴 로보택시 서비스 1주년(6/22)에 맞춰 안전 모니터요원을 완전히 제거하고 무인 일반 운행 전환",
+      "2025년 6월 22일 조수석 모니터요원 동승으로 시작 → 1/22 제한적 무인 → 6/3 메트로 전역 무인 → 6/22 모니터 완전 제거 순으로 단계 확대",
+      "운전석에 사람이 없는 '진짜 무인' 공개 운행으로, 머스크가 수년간 약속한 자율주행의 변곡점",
+      "현재 실제 운행 차량은 텍사스 전역 ~20대 수준으로 대수는 아직 소규모",
+      "카메라 기반 '비전 온리' FSD로 운행 — 라이다 의존 웨이모와 대비"
+    ],
+    "deep": [
+      "NHTSA가 5월 테슬라에 공식 정보요청을 보냈고, 2025년 6월 출시 이후 오스틴 플릿 관련 14건 충돌이 보고되며 규제 리스크가 병존",
+      "본격 증차는 10억 파라미터급 신경망을 적용한 FSD v15와 사이버캡 양산 램프 이후로 전망",
+      "6/3 메트로 전역 확대(아카이브 기보고)와 달리, 이번은 '안전요원 자체를 없앤' 1주년 마일스톤이 핵심"
+    ],
+    "src": "📰 Basenor · InsideEVs · CNBC"
+  },
+  {
+    "id": 14,
+    "sector": "데이터센터",
+    "type": "계약",
+    "color": "leaf",
+    "icon": "🔌",
+    "date": "6/22",
+    "title": "MS·셰브론, 텍사스에 2.67GW 독립 가스발전 'Kilby'",
+    "summary": [
+      "마이크로소프트·셰브론이 20년 전력공급 계약 체결(6/22) — 'Project Kilby'",
+      "서텍사스 페코스에 2.67GW 천연가스 발전소 신설, MS AI 데이터센터에 전용 공급",
+      "약 $7B(약 10.6조·환율 1,519원) 프로젝트, 발전설비 대부분 GE Vernova 터빈",
+      "ERCOT 그리드에 의존하지 않는 '오프그리드' 독립 전력 구조",
+      "최종투자결정(FID) 2026년 말, 첫 전력은 2028년 목표"
+    ],
+    "deep": [
+      "전력이 AI 데이터센터의 최대 병목이 되자 그리드를 우회하는 자가발전으로 선회",
+      "퍼미안 분지 천연가스를 연료로, 일부 용량은 캐터필러 Solar Turbines가 보완",
+      "대형 가스발전을 데이터센터에 직결하는 '온사이트 발전' 흐름의 대표 사례"
+    ],
+    "src": "📰 CNBC · TechCrunch · Chevron Newsroom"
+  },
+  {
+    "id": 15,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -198,7 +352,7 @@
     "src": "📰 CNBC · Electrek · Tesla Oracle (6/22~6/23)"
   },
   {
-    "id": 9,
+    "id": 16,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -219,7 +373,7 @@
     "src": "📰 TeslaNorth (2026-06-22) · Not a Tesla App · Insurance Journal"
   },
   {
-    "id": 10,
+    "id": 17,
     "sector": "우주",
     "type": "출시",
     "color": "grape",
@@ -241,7 +395,7 @@
     "src": "📰 Basenor · SpaceX Updates"
   },
   {
-    "id": 11,
+    "id": 18,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -263,7 +417,7 @@
     "src": "📰 CNBC · DataCenterDynamics · Dataconomy"
   },
   {
-    "id": 12,
+    "id": 19,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -285,7 +439,7 @@
     "src": "📰 Not a Tesla App · Tesla Oracle · Basenor"
   },
   {
-    "id": 13,
+    "id": 20,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -307,7 +461,7 @@
     "src": "📰 CNBC"
   },
   {
-    "id": 14,
+    "id": 21,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -327,7 +481,7 @@
     "src": "📰 Quantum Computing Report"
   },
   {
-    "id": 15,
+    "id": 22,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -347,7 +501,7 @@
     "src": "📰 Quantum Computing Report, IBM Quantum"
   },
   {
-    "id": 16,
+    "id": 23,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -369,7 +523,7 @@
     "src": "📰 CNBC · Bloomberg · TechCrunch · John Jumper(X)"
   },
   {
-    "id": 17,
+    "id": 24,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -391,7 +545,7 @@
     "src": "📰 Quantum Computing Report · ARA"
   },
   {
-    "id": 18,
+    "id": 25,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -412,7 +566,7 @@
     "src": "📰 Basenor (Giga Texas Optimus Factory) · 2026-06-19"
   },
   {
-    "id": 19,
+    "id": 26,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -432,7 +586,7 @@
     "src": "📰 TechTimes / Tech Fund"
   },
   {
-    "id": 20,
+    "id": 27,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -454,7 +608,7 @@
     "src": "📰 TechTimes (6/6) · AI Weekly · codersera"
   },
   {
-    "id": 21,
+    "id": 28,
     "sector": "우주",
     "type": "출시",
     "color": "grape",
@@ -476,7 +630,7 @@
     "src": "📰 Teslarati · KeepTrack"
   },
   {
-    "id": 22,
+    "id": 29,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -498,7 +652,7 @@
     "src": "📰 Automotive World · Electrek · TechTimes"
   },
   {
-    "id": 23,
+    "id": 30,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -520,7 +674,7 @@
     "src": "📰 Tesla Oracle · Not a Tesla App · Electrek (6/18~6/23)"
   },
   {
-    "id": 24,
+    "id": 31,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -542,7 +696,7 @@
     "src": "📰 Electrek · Drive Tesla · Tech Times (6/18~6/19)"
   },
   {
-    "id": 25,
+    "id": 32,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -563,7 +717,7 @@
     "src": "📰 Electrek (2026-04-22) · Wikipedia(Tesla Robotaxi) · TeslaNorth"
   },
   {
-    "id": 26,
+    "id": 33,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -585,7 +739,7 @@
     "src": "📰 CNBC · CBS News · Fox Business"
   },
   {
-    "id": 27,
+    "id": 34,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -606,7 +760,7 @@
     "src": "📰 techstartups.com / Bloomberg"
   },
   {
-    "id": 28,
+    "id": 35,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -626,7 +780,7 @@
     "src": "📰 TechTimes"
   },
   {
-    "id": 29,
+    "id": 36,
     "sector": "반도체",
     "type": "출시",
     "color": "berry",
@@ -646,7 +800,7 @@
     "src": "📰 TechTimes"
   },
   {
-    "id": 30,
+    "id": 37,
     "sector": "양자",
     "type": "출시",
     "color": "sky",
@@ -666,7 +820,7 @@
     "src": "📰 Quantum Computing Report"
   },
   {
-    "id": 31,
+    "id": 38,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -687,7 +841,7 @@
     "src": "📰 Google Blog (Android Authority, UC Today, SD Times 보도)"
   },
   {
-    "id": 32,
+    "id": 39,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -709,7 +863,7 @@
     "src": "📰 OpenAI (Improving health intelligence in ChatGPT) · TechCrunch"
   },
   {
-    "id": 33,
+    "id": 40,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -729,7 +883,7 @@
     "src": "📰 OpenAI Newsroom (Product releases, 2026-06-18)"
   },
   {
-    "id": 34,
+    "id": 41,
     "sector": "기타",
     "type": "화제",
     "color": "text-muted",
@@ -750,7 +904,7 @@
     "src": "📰 Rockstar Newswire · IBTimes · Yahoo Finance"
   },
   {
-    "id": 35,
+    "id": 42,
     "sector": "AI",
     "type": "매출",
     "color": "mint",
@@ -771,7 +925,71 @@
     "src": "📰 TechCrunch · Enterprise DNA · The Next Web"
   },
   {
-    "id": 36,
+    "id": 43,
+    "sector": "방산",
+    "type": "계약",
+    "color": "mango-deep",
+    "icon": "🛩️",
+    "date": "6/17",
+    "title": "美 공군, 앤듀릴·제너럴아토믹스에 무인전투기 첫 양산계약",
+    "summary": [
+      "美 공군이 CCA(협동전투기) Increment 1 양산계약을 앤듀릴·제너럴아토믹스에 부여(6/17)",
+      "앤듀릴 FQ-44A 퓨리 + 제너럴아토믹스 FQ-42A 다크멀린, 첫 150대 분량",
+      "전투기급 자율 무인기를 양산하기로 한 주요국 최초 사례",
+      "대당 단가 $30M(약 46조 환산 아님·대당 약 456억) 미만 목표·2020년대 말 인도",
+      "일정보다 4개월 앞당겨 계약 — 프로토타입→양산 약 2년의 초고속 전환"
+    ],
+    "deep": [
+      "Increment 1 개발·조달 총액은 약 $8.9B(약 14조·환율 1,519원) 규모로 거론",
+      "실드AI의 자율비행 SW 'Hivemind'도 같은 사업에서 양산계약 확보",
+      "유인 전투기를 보조하는 '드론 윙맨' 대량 도입 시대 진입 신호"
+    ],
+    "src": "📰 DefenseScoop · Breaking Defense · Defense One"
+  },
+  {
+    "id": 44,
+    "sector": "방산",
+    "type": "계약",
+    "color": "mango-deep",
+    "icon": "🤝",
+    "date": "6/17",
+    "title": "앤듀릴, 라인메탈과 유럽용 드론·순항미사일 공동생산 서명",
+    "summary": [
+      "앤듀릴과 독일 라인메탈이 유럽향 순항미사일·전투드론·고체로켓모터 공동개발 협약 정식 서명(6/17)",
+      "앤듀릴 '바라쿠다' 저가 순항미사일군 + YFQ-44 제트 전투드론을 유럽 요구사항에 맞춰 개조",
+      "라인메탈이 유럽 고객 영업·판매·사후지원 담당, 향후 독일 현지생산도 추진",
+      "바라쿠다는 대량생산 최적화 모듈형 자율 비행체로 NATO권 관심 집중"
+    ],
+    "deep": [
+      "앤듀릴의 미국산 무기를 유럽이 현지에서 찍어내는 '메이드 인 유럽' 구조",
+      "라인메탈은 별도로 분트스베어 FV-014 배회폭탄 수십억 유로 기본계약(1차 발주 약 €300M)도 확보",
+      "유럽 재무장 흐름에서 저가 대량 정밀무기 공급망이 미·독 합작으로 재편"
+    ],
+    "src": "📰 Militarnyi · UK Defence Journal · heise online"
+  },
+  {
+    "id": 45,
+    "sector": "방산",
+    "type": "화제",
+    "color": "mango-deep",
+    "icon": "🇷🇴",
+    "date": "6/17",
+    "title": "루마니아 K2 전차 216대 입찰…현대로템, 美·독과 3파전",
+    "summary": [
+      "루마니아가 차세대 전차 216대 도입에 €6.5B(약 11.2조) 투입 추진",
+      "현대로템 K2 흑표 vs 美 에이브럼스 vs 독일 레오파르트 경합 구도",
+      "EU 무기 공동구매 대출 'SAFE 기금' 활용 — '부품 65%+ EU 회원국 생산' 조건",
+      "루마니아 군 당국 '상반기 중 공급업체 선정 진전' 시사"
+    ],
+    "deep": [
+      "폴란드 K2 1·2차 계약 이후 동유럽 차기 대형 전차 시장으로 부상",
+      "SAFE 65% EU 현지생산 조건이 K2의 현지화·산업협력 부담을 키우는 변수",
+      "업계는 최종 사업자 선정이 2027년으로 넘어갈 가능성도 거론"
+    ],
+    "src": "📰 밀리충전(다음) · 인사이트코리아 · 딜사이트"
+  },
+  {
+    "id": 46,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -795,7 +1013,7 @@
     "src": "📰 Windows Central · Yahoo Tech · The Next Web · Windows Forum"
   },
   {
-    "id": 37,
+    "id": 47,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -816,7 +1034,7 @@
     "src": "📰 Quantum Computing Report · Atom Computing"
   },
   {
-    "id": 38,
+    "id": 48,
     "sector": "자율주행",
     "type": "계약",
     "color": "rose",
@@ -838,7 +1056,7 @@
     "src": "📰 Stellantis Media · Wayve · just-auto"
   },
   {
-    "id": 39,
+    "id": 49,
     "sector": "자율주행",
     "type": "계약",
     "color": "rose",
@@ -860,7 +1078,7 @@
     "src": "📰 Uber IR · TechCrunch · InsideEVs"
   },
   {
-    "id": 40,
+    "id": 50,
     "sector": "우주",
     "type": "출시",
     "color": "grape",
@@ -882,7 +1100,7 @@
     "src": "📰 Spaceflight Now · TechTimes · SatNews"
   },
   {
-    "id": 41,
+    "id": 51,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -904,7 +1122,7 @@
     "src": "📰 Breaking Defense · TWZ · Army Recognition"
   },
   {
-    "id": 42,
+    "id": 52,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -926,7 +1144,7 @@
     "src": "📰 Bloomberg · Spaceflight Now · Air & Space Forces"
   },
   {
-    "id": 43,
+    "id": 53,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -947,7 +1165,28 @@
     "src": "📰 Quantum Computing Report"
   },
   {
-    "id": 44,
+    "id": 54,
+    "sector": "방산",
+    "type": "계약",
+    "color": "mango-deep",
+    "icon": "✈️",
+    "date": "6/16",
+    "title": "KAI·한화·LIG, 리야드 WDS서 국산 항공무장 공동개발 MOU",
+    "summary": [
+      "KAI·한화에어로스페이스·LIG넥스원이 사우디 리야드 '세계방산전시회(WDS 2026)'서 MOU 체결",
+      "국산 항공 무장 개발·체계통합·공동 마케팅이 골자",
+      "KF-21·FA-50에 탑재할 국산 정밀유도무기 국산화·통합 협력",
+      "세 회사가 '삼각편대'로 완제기+무장 패키지 수출 기반 강화"
+    ],
+    "deep": [
+      "무기 단품이 아닌 '플랫폼+무장+체계통합' 묶음으로 수출 경쟁력 제고 전략",
+      "KAI는 이집트와 FA-50 36~최대 100대 수출 협상도 병행",
+      "중동을 폴란드 이후 K-방산 차기 핵심 시장으로 공략하는 흐름의 일부"
+    ],
+    "src": "📰 이지경제 · 아주경제 · 중앙이코노미뉴스"
+  },
+  {
+    "id": 55,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -968,7 +1207,7 @@
     "src": "📰 KAD · ts2.tech"
   },
   {
-    "id": 45,
+    "id": 56,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -990,7 +1229,7 @@
     "src": "📰 이투데이 · 헤럴드경제 · 시티타임스"
   },
   {
-    "id": 46,
+    "id": 57,
     "sector": "자율주행",
     "type": "계약",
     "color": "rose",
@@ -1010,7 +1249,7 @@
     "src": "📰 CNBC (cnbc.com, 2026-06-16), Mobileye Newsroom, Automotive News"
   },
   {
-    "id": 47,
+    "id": 58,
     "sector": "자율주행",
     "type": "계약",
     "color": "rose",
@@ -1030,7 +1269,7 @@
     "src": "📰 NVIDIA Newsroom (nvidianews.nvidia.com/news/nvidia-uber-robotaxi)"
   },
   {
-    "id": 48,
+    "id": 59,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -1051,7 +1290,7 @@
     "src": "📰 TweakTown · TrendForce · Notebookcheck"
   },
   {
-    "id": 49,
+    "id": 60,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -1073,7 +1312,49 @@
     "src": "📰 CNBC"
   },
   {
-    "id": 50,
+    "id": 61,
+    "sector": "자율주행",
+    "type": "매출",
+    "color": "rose",
+    "icon": "🟢",
+    "date": "6/15",
+    "title": "웨이모, 주 50만 유료탑승…20개 도시·도쿄·런던 확장",
+    "summary": [
+      "웨이모가 미국 10개 도시에서 주당 50만 건 유료 로보택시 탑승을 처리하는 규모 도달",
+      "2026년 도쿄·런던 포함 20개+ 신규 도시로 사상 최대 확장 추진(웨이모의 첫 유럽 진출)",
+      "런던은 재규어 I-PACE ~100대로 약 100㎢ 구역 테스트 중(현지 운영·정비는 Moove 담당)",
+      "미국선 Lyft와 손잡고 내슈빌, Avis Budget Group과 손잡고 댈러스에 서비스 도입 — 웨이모 앱·Lyft 앱 양쪽 호출 지원",
+      "5월엔 서비스 면적을 11개 도시 1,400㎢+로 약 27% 확대"
+    ],
+    "deep": [
+      "웨이모는 차량 직접운영 대신 Avis(댈러스)·Moove(런던) 등 파트너에 인프라·정비·차고지 운영을 맡기는 분업 구조로 확장 속도를 높임",
+      "라이다·레이더 포함 L4 시스템으로 이미 상업운행 중이라, 비전 온리 테슬라와 기술 노선이 대비됨"
+    ],
+    "src": "📰 CNBC · TechCrunch · CITIPEN"
+  },
+  {
+    "id": 62,
+    "sector": "양자",
+    "type": "화제",
+    "color": "sky",
+    "icon": "🔊",
+    "date": "6/15",
+    "title": "구글, '퀀텀 에코' 검증가능 양자우위 첫 실증 (네이처 게재)",
+    "summary": [
+      "구글이 Willow 칩에서 OTOC 알고리즘 '퀀텀 에코(Quantum Echoes)' 실행해 첫 '검증가능 양자우위' 실증",
+      "세계 최고 슈퍼컴 대비 약 13,000배 빠른 속도 — 학술지 네이처 게재",
+      "'검증가능'은 다른 동급 양자컴에서 같은 결과 재현이 가능하다는 의미",
+      "UC버클리와 15·28원자 분자 연구에 적용해 기존 NMR 결과와 일치 확인"
+    ],
+    "deep": [
+      "분자·자석·블랙홀 등 자연계 구조 규명에 활용 가능한 알고리즘",
+      "재현 가능한 '초고전적 연산'이 확장형 검증의 기반 — 실용 도구화에 한 걸음",
+      "단순 속도 기록을 넘어 '결과를 검증할 수 있는' 양자우위라는 점이 차별점"
+    ],
+    "src": "📰 Google Blog · Quantum Computing Report · IEEE Spectrum"
+  },
+  {
+    "id": 63,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -1094,7 +1375,7 @@
     "src": "📰 Rheinmetall 보도자료 · PRNewswire · 아시아경제 (6/15~16)"
   },
   {
-    "id": 51,
+    "id": 64,
     "sector": "자율주행",
     "type": "계약",
     "color": "rose",
@@ -1116,7 +1397,7 @@
     "src": "📰 Element/PRNewswire · Electrek · Automotive World"
   },
   {
-    "id": 52,
+    "id": 65,
     "sector": "방산",
     "type": "출시",
     "color": "mango-deep",
@@ -1138,7 +1419,7 @@
     "src": "📰 Defense News · Shephard (Eurosatory 2026)"
   },
   {
-    "id": 53,
+    "id": 66,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -1160,7 +1441,7 @@
     "src": "📰 Reuters · The Register · Tom's Hardware"
   },
   {
-    "id": 54,
+    "id": 67,
     "sector": "자율주행",
     "type": "계약",
     "color": "rose",
@@ -1182,7 +1463,7 @@
     "src": "📰 New Atlas · The Robot Report · TechTimes"
   },
   {
-    "id": 55,
+    "id": 68,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -1204,7 +1485,7 @@
     "src": "📰 Quantum Computing Report"
   },
   {
-    "id": 56,
+    "id": 69,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -1224,7 +1505,7 @@
     "src": "📰 BenchLM.ai · TokenMix · LLMReference"
   },
   {
-    "id": 57,
+    "id": 70,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -1244,7 +1525,7 @@
     "src": "📰 OpenAI / Storyboard18"
   },
   {
-    "id": 58,
+    "id": 71,
     "sector": "자율주행",
     "type": "매출",
     "color": "rose",
@@ -1264,7 +1545,7 @@
     "src": "📰 basenor.com, Electrek (electrek.co), techxplore.com"
   },
   {
-    "id": 59,
+    "id": 72,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -1284,7 +1565,7 @@
     "src": "📰 Windows Forum / Silicon Analysts"
   },
   {
-    "id": 60,
+    "id": 73,
     "sector": "방산",
     "type": "화제",
     "color": "mango-deep",
@@ -1304,7 +1585,7 @@
     "src": "📰 더퍼블릭, 헤럴드경제"
   },
   {
-    "id": 61,
+    "id": 74,
     "sector": "AI",
     "type": "매출",
     "color": "mint",
@@ -1325,7 +1606,7 @@
     "src": "📰 Sensor Tower State of Mobile 2026 / Business of Apps"
   },
   {
-    "id": 62,
+    "id": 75,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -1346,7 +1627,7 @@
     "src": "📰 The New Stack · DevOps.com · Anthropic Help Center"
   },
   {
-    "id": 63,
+    "id": 76,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -1368,7 +1649,7 @@
     "src": "📰 SpaceNews · Basenor · FCC"
   },
   {
-    "id": 64,
+    "id": 77,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -1388,7 +1669,7 @@
     "src": "📰 BuildFastWithAI · IBM"
   },
   {
-    "id": 65,
+    "id": 78,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -1409,7 +1690,7 @@
     "src": "📰 이투데이 · 보안뉴스"
   },
   {
-    "id": 66,
+    "id": 79,
     "sector": "우주",
     "type": "매출",
     "color": "grape",
@@ -1432,7 +1713,7 @@
     "src": "📰 TechTimes · Basenor"
   },
   {
-    "id": 67,
+    "id": 80,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -1456,7 +1737,7 @@
     "src": "📰 Electrek · humanoid.press"
   },
   {
-    "id": 68,
+    "id": 81,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -1478,7 +1759,7 @@
     "src": "📰 Not a Tesla App · Tesla Oracle · TechTimes"
   },
   {
-    "id": 69,
+    "id": 82,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -1500,7 +1781,7 @@
     "src": "📰 Quantum Computing Report · HPCwire"
   },
   {
-    "id": 70,
+    "id": 83,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -1522,7 +1803,7 @@
     "src": "📰 VentureBeat · latent.space · DataNorth"
   },
   {
-    "id": 71,
+    "id": 84,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -1542,7 +1823,7 @@
     "src": "📰 이투데이, 딜사이트"
   },
   {
-    "id": 72,
+    "id": 85,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -1562,7 +1843,7 @@
     "src": "📰 Kingy AI · explainx.ai · llm-stats.com"
   },
   {
-    "id": 73,
+    "id": 86,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -1583,7 +1864,7 @@
     "src": "📰 Business Wire / Converge Digest"
   },
   {
-    "id": 74,
+    "id": 87,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -1603,7 +1884,7 @@
     "src": "📰 Anthropic, TechTimes, ChatSlide"
   },
   {
-    "id": 75,
+    "id": 88,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -1623,7 +1904,7 @@
     "src": "📰 Spaceflight Now / CNBC / Reuters"
   },
   {
-    "id": 76,
+    "id": 89,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -1642,7 +1923,7 @@
     "src": "📰 Rest of World"
   },
   {
-    "id": 77,
+    "id": 90,
     "sector": "데이터센터",
     "type": "화제",
     "color": "leaf",
@@ -1662,7 +1943,7 @@
     "src": "📰 Tech Fund / io-fund"
   },
   {
-    "id": 78,
+    "id": 91,
     "sector": "양자",
     "type": "출시",
     "color": "sky",
@@ -1682,7 +1963,7 @@
     "src": "📰 Quantum Computing Report"
   },
   {
-    "id": 79,
+    "id": 92,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -1704,7 +1985,7 @@
     "src": "📰 TechRadar · CNBC"
   },
   {
-    "id": 80,
+    "id": 93,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -1725,7 +2006,7 @@
     "src": "📰 TechSpot · Republic World · KED Global"
   },
   {
-    "id": 81,
+    "id": 94,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -1747,7 +2028,7 @@
     "src": "📰 Waymo Blog · CNBC · TechCrunch · Electrek (2026-06-11)"
   },
   {
-    "id": 82,
+    "id": 95,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -1766,7 +2047,7 @@
     "src": "📰 CNBC"
   },
   {
-    "id": 83,
+    "id": 96,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -1788,7 +2069,7 @@
     "src": "📰 Anthropic(Claude Corps) · The NonProfit Times · Qz"
   },
   {
-    "id": 84,
+    "id": 97,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -1808,7 +2089,28 @@
     "src": "📰 TCS 보도자료 · Yahoo Finance"
   },
   {
-    "id": 85,
+    "id": 98,
+    "sector": "자율주행",
+    "type": "출시",
+    "color": "rose",
+    "icon": "🚙",
+    "date": "6/10",
+    "title": "아마존 죽스, 신형 로보택시 공개…주 100대 양산 예고",
+    "summary": [
+      "아마존 죽스(Zoox)가 개선형 로보택시 디자인을 공개 — 고화질 터치스크린·개선된 시트·헤드레스트 등 실내 개편",
+      "신형 차량은 라인오프되는 대로 연내 탑승객에 제공, 생산은 주당 최대 100대 페이스까지 램프업 가능",
+      "샌프란시스코에서 2026년 하반기 유료 로보택시 서비스 출시 계획",
+      "SF는 죽스 합류 시 라이더가 4개 로보택시 서비스를 고를 수 있는 세계 첫 도시가 될 전망",
+      "운전대·페달 없는 전용 차량 노선으로 웨이모·테슬라와 경쟁 구도"
+    ],
+    "deep": [
+      "죽스는 차량 직접 설계·운영하는 수직통합 모델로, 양산 페이스 확보가 상업화의 핵심 변수",
+      "우버는 별개로 Nuro 기반 Lucid Gravity 로보택시를 내년 휴스턴으로 확대하는 등 AV 파트너십을 늘리는 흐름"
+    ],
+    "src": "📰 The Driverless Digest · Not a Tesla App · InsideEVs"
+  },
+  {
+    "id": 99,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -1830,7 +2132,7 @@
     "src": "📰 Business Wire · DataCenterDynamics · TechTimes"
   },
   {
-    "id": 86,
+    "id": 100,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -1852,7 +2154,7 @@
     "src": "📰 NIST/Commerce · Quantum Zeitgeist"
   },
   {
-    "id": 87,
+    "id": 101,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -1874,7 +2176,7 @@
     "src": "📰 Quantum Computing Report · The Quantum Insider · Microsoft Quantum"
   },
   {
-    "id": 88,
+    "id": 102,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -1894,7 +2196,7 @@
     "src": "📰 Google AI for Developers / TechCrunch"
   },
   {
-    "id": 89,
+    "id": 103,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -1914,7 +2216,7 @@
     "src": "📰 humanoid.press, meta-intelligence.tech, vaasblock.com"
   },
   {
-    "id": 90,
+    "id": 104,
     "sector": "반도체",
     "type": "화제",
     "color": "berry",
@@ -1934,7 +2236,7 @@
     "src": "📰 Silicon Analysts"
   },
   {
-    "id": 91,
+    "id": 105,
     "sector": "양자",
     "type": "출시",
     "color": "sky",
@@ -1954,7 +2256,7 @@
     "src": "📰 Quantum Computing Report"
   },
   {
-    "id": 92,
+    "id": 106,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -1975,7 +2277,7 @@
     "src": "📰 TechCrunch / Tom's Guide / BGR / Malwarebytes"
   },
   {
-    "id": 93,
+    "id": 107,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -1999,7 +2301,7 @@
     "src": "📰 Tom's Hardware · WSJ 인용"
   },
   {
-    "id": 94,
+    "id": 108,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -2020,7 +2322,7 @@
     "src": "📰 Crusoe Newsroom · CIO Dive · Tech Fund"
   },
   {
-    "id": 95,
+    "id": 109,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -2042,7 +2344,7 @@
     "src": "📰 DCD · Digitimes · Futurum"
   },
   {
-    "id": 96,
+    "id": 110,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -2068,7 +2370,7 @@
     "src": "📰 Google The Keyword · 9to5Google · TechCrunch"
   },
   {
-    "id": 97,
+    "id": 111,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -2093,7 +2395,7 @@
     "src": "📰 CNBC"
   },
   {
-    "id": 98,
+    "id": 112,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -2114,7 +2416,7 @@
     "src": "📰 Tom's Hardware · OpenAI · Yahoo Finance"
   },
   {
-    "id": 99,
+    "id": 113,
     "sector": "우주",
     "type": "계약",
     "color": "grape",
@@ -2136,7 +2438,7 @@
     "src": "📰 Aviation A2Z · Runway Girl Network · Business Traveller"
   },
   {
-    "id": 100,
+    "id": 114,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -2156,7 +2458,7 @@
     "src": "📰 Deadline / Consequence / Axios"
   },
   {
-    "id": 101,
+    "id": 115,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -2176,7 +2478,7 @@
     "src": "📰 Tesla Oracle (teslaoracle.com, 2026-06-08), tesery.com"
   },
   {
-    "id": 102,
+    "id": 116,
     "sector": "자율주행",
     "type": "화제",
     "color": "rose",
@@ -2196,7 +2498,7 @@
     "src": "📰 Waymo Blog, roadtoautonomy.com, insideevs.com, eweek.com"
   },
   {
-    "id": 103,
+    "id": 117,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -2218,7 +2520,29 @@
     "src": "📰 AI News Today (6/8)"
   },
   {
-    "id": 104,
+    "id": 118,
+    "sector": "반도체",
+    "type": "계약",
+    "color": "berry",
+    "icon": "🔒",
+    "date": "6/7",
+    "title": "엔비디아, SK하이닉스와 2030년까지 HBM 공급 묶었다",
+    "summary": [
+      "엔비디아가 SK하이닉스와 차세대 AI 메모리 다년 공동개발·공급 계약 체결(6/7)",
+      "Vera Rubin·Vera CPU·RTX Spark·Jetson Thor까지 제품 로드맵 전반을 포괄",
+      "SK하이닉스가 Vera Rubin용 HBM4 물량의 약 60~70% 선점(삼성·마이크론 앞서)",
+      "HBM 캐파가 최소 2028년, 일부 전망은 2030년까지 빠듯하다는 진단",
+      "'실리콘 생산'이 아니라 '메모리 공급'이 AI 출하 속도의 병목이라는 의미"
+    ],
+    "deep": [
+      "엔비디아가 공급사 설비투자 리스크를 흡수해주는 대신 물량을 잠그는 구조",
+      "앞서 인증(6/2)·유료 샘플과 달리, 이번은 로드맵 전체를 건 장기 락인 계약",
+      "금액 등 구체 조건은 비공개지만 '공급 안정+로드맵 정렬'이 전략 핵심"
+    ],
+    "src": "📰 The Next Web · DataCenterDynamics · Korea Herald"
+  },
+  {
+    "id": 119,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -2240,7 +2564,7 @@
     "src": "📰 SpaceNews · SpaceDaily · Orbital-Intel · KeepTrack"
   },
   {
-    "id": 105,
+    "id": 120,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -2261,7 +2585,7 @@
     "src": "📰 Seeking Alpha · TechTimes · Investing.com"
   },
   {
-    "id": 106,
+    "id": 121,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -2283,7 +2607,7 @@
     "src": "📰 Breaking Defense · Defense News · U.S. State Dept"
   },
   {
-    "id": 107,
+    "id": 122,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -2303,7 +2627,7 @@
     "src": "📰 Anthropic, CyberScoop, DigitalApplied"
   },
   {
-    "id": 108,
+    "id": 123,
     "sector": "AI",
     "type": "계약",
     "color": "mint",
@@ -2323,7 +2647,7 @@
     "src": "📰 Anthropic(Expanding Project Glasswing)"
   },
   {
-    "id": 109,
+    "id": 124,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -2348,7 +2672,7 @@
     "src": "📰 Yahoo Finance / TechTimes"
   },
   {
-    "id": 110,
+    "id": 125,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -2368,7 +2692,7 @@
     "src": "📰 CNBC · The Quantum Insider · Reuters (6/4)"
   },
   {
-    "id": 111,
+    "id": 126,
     "sector": "AI",
     "type": "매출",
     "color": "mint",
@@ -2389,7 +2713,7 @@
     "src": "📰 Apple Newsroom (TechCrunch, 9to5Mac, MacRumors 보도)"
   },
   {
-    "id": 112,
+    "id": 127,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -2410,7 +2734,7 @@
     "src": "📰 Quantum Computing Report · Atom Computing"
   },
   {
-    "id": 113,
+    "id": 128,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -2430,7 +2754,7 @@
     "src": "📰 AccessNewswire / StockTitan"
   },
   {
-    "id": 114,
+    "id": 129,
     "sector": "AI",
     "type": "매출",
     "color": "mint",
@@ -2452,7 +2776,7 @@
     "src": "📰 DemandSage · Enterprise DNA"
   },
   {
-    "id": 115,
+    "id": 130,
     "sector": "양자",
     "type": "화제",
     "color": "sky",
@@ -2473,7 +2797,7 @@
     "src": "📰 The White House · Department of Energy"
   },
   {
-    "id": 116,
+    "id": 131,
     "sector": "반도체",
     "type": "계약",
     "color": "berry",
@@ -2495,7 +2819,7 @@
     "src": "📰 Semiconductor Today"
   },
   {
-    "id": 117,
+    "id": 132,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -2517,7 +2841,7 @@
     "src": "📰 DroneShield · Inside Unmanned Systems"
   },
   {
-    "id": 118,
+    "id": 133,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -2537,7 +2861,7 @@
     "src": "📰 TechCrunch"
   },
   {
-    "id": 119,
+    "id": 134,
     "sector": "우주",
     "type": "계약",
     "color": "grape",
@@ -2559,7 +2883,7 @@
     "src": "📰 SpaceNews · Astrobotic · Starlust"
   },
   {
-    "id": 120,
+    "id": 135,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -2581,7 +2905,7 @@
     "src": "📰 IBM Newsroom · U.S. Commerce · Quantinuum"
   },
   {
-    "id": 121,
+    "id": 136,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -2603,7 +2927,29 @@
     "src": "📰 CNBC · MindStudio"
   },
   {
-    "id": 122,
+    "id": 137,
+    "sector": "반도체",
+    "type": "출시",
+    "color": "berry",
+    "icon": "🧠",
+    "date": "6/1",
+    "title": "엔비디아, GTC서 추론 전용칩 'Groq 3 LPU' 공개",
+    "summary": [
+      "엔비디아가 GTC 2026서 언어처리장치(LPU) 'Groq 3' 공개 — 추론 전용 신규 칩군",
+      "약 $20B(약 30조·환율 1,519원) 규모 Groq 딜의 첫 결과물로 거론",
+      "액침냉각 'LPX 랙'에 LPU 256개·온칩 SRAM 128GB·스케일업 640TBps 구성",
+      "SRAM 기반 가속기로 삼성 4nm 공정을 기반으로 제조",
+      "로드맵상 있던 장문추론용 'Rubin CPX'를 폐기하고 LPX 랙으로 대체"
+    ],
+    "deep": [
+      "엔비디아가 데이터센터 로드맵을 2028년까지 GPU·CPU·LPU 3축으로 재편",
+      "Groq 3 LPU는 2026년 하반기 출시, 후속 LP35(2027 하반기)·LP40(2028) 예고",
+      "GPU 일변도에서 추론 전용칩으로 전선을 넓히는 'inference 왕국 확장'"
+    ],
+    "src": "📰 DataCenterDynamics · Tom's Hardware · StorageReview"
+  },
+  {
+    "id": 138,
     "sector": "반도체",
     "type": "출시",
     "color": "berry",
@@ -2625,7 +2971,7 @@
     "src": "📰 NVIDIA Newsroom · Tom's Hardware · CNBC"
   },
   {
-    "id": 123,
+    "id": 139,
     "sector": "AI",
     "type": "출시",
     "color": "mint",
@@ -2647,7 +2993,7 @@
     "src": "📰 VentureBeat · MarkTechPost · SCMP"
   },
   {
-    "id": 124,
+    "id": 140,
     "sector": "반도체",
     "type": "출시",
     "color": "berry",
@@ -2668,7 +3014,7 @@
     "src": "📰 NVIDIA Newsroom / Digitimes"
   },
   {
-    "id": 125,
+    "id": 141,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -2690,7 +3036,7 @@
     "src": "📰 CNBC · Anthropic"
   },
   {
-    "id": 126,
+    "id": 142,
     "sector": "AI",
     "type": "화제",
     "color": "mint",
@@ -2711,7 +3057,7 @@
     "src": "📰 TechCrunch · Digital Trends"
   },
   {
-    "id": 127,
+    "id": 143,
     "sector": "반도체",
     "type": "출시",
     "color": "berry",
@@ -2732,7 +3078,7 @@
     "src": "📰 Samsung Newsroom · TechTimes"
   },
   {
-    "id": 128,
+    "id": 144,
     "sector": "우주",
     "type": "계약",
     "color": "grape",
@@ -2754,7 +3100,7 @@
     "src": "📰 CNBC · Military Times · SpaceNews"
   },
   {
-    "id": 129,
+    "id": 145,
     "sector": "자율주행",
     "type": "출시",
     "color": "rose",
@@ -2776,7 +3122,7 @@
     "src": "📰 Electrek · CNBC · TechCrunch"
   },
   {
-    "id": 130,
+    "id": 146,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -2797,7 +3143,7 @@
     "src": "📰 Anthropic(Series H), CoinDesk"
   },
   {
-    "id": 131,
+    "id": 147,
     "sector": "우주",
     "type": "화제",
     "color": "grape",
@@ -2819,7 +3165,7 @@
     "src": "📰 Spaceflight Now · Space.com · CNN"
   },
   {
-    "id": 132,
+    "id": 148,
     "sector": "우주",
     "type": "출시",
     "color": "grape",
@@ -2843,7 +3189,7 @@
     "src": "📰 Spaceflight Now · CNN"
   },
   {
-    "id": 133,
+    "id": 149,
     "sector": "양자",
     "type": "계약",
     "color": "sky",
@@ -2863,7 +3209,28 @@
     "src": "📰 CNBC, Data Center Dynamics"
   },
   {
-    "id": 134,
+    "id": 150,
+    "sector": "방산",
+    "type": "계약",
+    "color": "mango-deep",
+    "icon": "🐝",
+    "date": "5/19",
+    "title": "펜타곤, 페레니얼에 5억달러 대드론 계약…실드AI는 LUCAS 자율화",
+    "summary": [
+      "美 합동임무대 JIATF-401이 스타트업 Perennial Autonomy에 3년 $500M(약 7,600억) 대드론 IDIQ 부여(5/19)",
+      "우크라서 러 드론 4,000기+ 요격한 'Merops' 등 AI 대UAS 시스템 납품 예정",
+      "펜타곤이 실드AI를 저가 타격드론 'LUCAS' 자율화 사업에 선정(5/20)",
+      "실드AI 'Hivemind'가 LUCAS의 AI 조종사 역할 — 1명이 다수 플랫폼 감독"
+    ],
+    "deep": [
+      "LUCAS는 이란 샤헤드-136을 역설계한 저가 타격드론으로 대당 약 $35,000(약 5,300만원)",
+      "우크라이나식 '값싼 요격기' 교리를 미군 정식 독트린으로 채택하는 흐름",
+      "명명된 프로그램 계약으로 '군집 타격' 교리가 예산문서에서 실전 조달로 이동"
+    ],
+    "src": "📰 DefenseScoop · Defense News · Breaking Defense"
+  },
+  {
+    "id": 151,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -2883,7 +3250,7 @@
     "src": "📰 CNBC"
   },
   {
-    "id": 135,
+    "id": 152,
     "sector": "방산",
     "type": "계약",
     "color": "mango-deep",
@@ -2905,7 +3272,7 @@
     "src": "📰 Military Times · Washington Times"
   },
   {
-    "id": 136,
+    "id": 153,
     "sector": "방산",
     "type": "화제",
     "color": "mango-deep",
@@ -2925,7 +3292,7 @@
     "src": "📰 더퍼블릭, 머니투데이"
   },
   {
-    "id": 137,
+    "id": 154,
     "sector": "데이터센터",
     "type": "계약",
     "color": "leaf",
@@ -2947,7 +3314,7 @@
     "src": "📰 Anthropic · CNBC"
   },
   {
-    "id": 138,
+    "id": 155,
     "sector": "우주",
     "type": "계약",
     "color": "grape",

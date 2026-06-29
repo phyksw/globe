@@ -149,7 +149,13 @@ function pickPrimary(text) {
   return m[0].ent;
 }
 
-const fixups = { 77: 'US', 107: 'US', 126: 'US' }; // id -> iso2 override (post-review)
+// title-substring overrides (robust to feed reordering): a few generic articles the keyword
+// matcher mis-pins via their summary text — force them to the correct HQ country.
+const TITLE_FIXUPS = [
+  ['네오클라우드 전력 확보', 'US'],
+  ['Project Glasswing', 'US'],
+  ['AI가 만든 앱 폭증', 'US'],
+];
 
 let unmatched = [];
 for (const it of items) {
@@ -159,9 +165,11 @@ for (const it of items) {
   let primary = pickPrimary(titleText) || pickPrimary(allText);
   if (!primary) { unmatched.push(it.id); primary = { iso2: 'US', lat: 39.5, lng: -98.35 }; }
 
-  let iso2 = fixups[it.id] || primary.iso2;
+  let override = null;
+  for (const [kw, iso] of TITLE_FIXUPS) if (it.title.includes(kw)) { override = iso; break; }
+  let iso2 = override || primary.iso2;
   it.country = iso2;
-  if (fixups[it.id]) {           // overridden: snap pin to that country's centroid
+  if (override) {                // overridden: snap pin to that country's centroid
     it.lat = COUNTRIES[iso2].lat;
     it.lng = COUNTRIES[iso2].lng;
   } else {

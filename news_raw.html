@@ -36,15 +36,25 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero" style="background:linear-gradient(180deg,#fff5e6 0%,#fffaf2 100%)">
+  <section class="hero" style="background:linear-gradient(180deg,#fff5e6 0%,#fffaf2 100%);position:relative">
     <div class="container-narrow">
       <span class="hero-eyebrow">📰 업계 타임라인 · 시간순</span>
       <h1 class="hero-title">최근 <span class="accent">업계에서 생긴 일</span></h1>
       <p class="hero-sub">AI·우주·반도체·방산 업계의 <b>계약·신제품·매출·화제</b>를 시간순으로. <b>제목을 누르면</b> 상세가 펼쳐져요.<br>최근 4주(5월말~6월) · 보도·공식 발표 기준 · 출처 표기.</p>
     </div>
+    <a href="/globe" class="globe-cta" title="뉴스를 지구본으로 보기">
+      <span class="globe-cta-badge">🌐</span>
+      <span class="globe-cta-txt">지구본으로<br><b>보기 →</b></span>
+    </a>
   </section>
 
   <style>
+    .globe-cta{ position:absolute; top:16px; right:16px; display:inline-flex; align-items:center; gap:10px; background:var(--bg-card,#fff); border:2px solid var(--mango); border-radius:16px; padding:8px 14px 8px 9px; text-decoration:none; box-shadow:0 6px 16px rgba(255,140,26,.18); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; z-index:5; }
+    .globe-cta:hover{ transform:translateY(-2px); box-shadow:0 11px 24px rgba(255,140,26,.3); border-color:var(--mango-deep); }
+    .globe-cta-badge{ width:38px; height:38px; flex:none; border-radius:11px; background:linear-gradient(135deg,var(--mango),var(--mango-bright)); display:grid; place-items:center; font-size:21px; box-shadow:0 2px 8px rgba(255,140,26,.35); }
+    .globe-cta-txt{ font-size:12px; font-weight:700; color:var(--text-soft); line-height:1.26; letter-spacing:-.01em; }
+    .globe-cta-txt b{ display:block; color:var(--mango-deep); font-weight:900; font-size:13.5px; }
+    @media(max-width:720px){ .globe-cta{ position:static; margin:14px auto 0; } }
     .news-grid { position:relative; display:flex; flex-direction:column; gap:11px; padding-left:30px; }
     .news-grid::before { content:""; position:absolute; left:6px; top:16px; bottom:16px; width:2px; background:linear-gradient(180deg,var(--mango-bright) 0%,var(--bg-dim) 100%); border-radius:2px; }
     .news-grid .news-item { position:relative; background:var(--bg-card); border:1px solid var(--bg-dim); border-radius:14px; padding:15px 18px; cursor:pointer; transition:box-shadow .14s ease, border-color .14s ease; }
@@ -84,6 +94,75 @@
         <div class="nf-row"><span class="nf-label">종류</span><button class="nf-chip active" data-dim="type" data-val="all">전체</button><button class="nf-chip" data-dim="type" data-val="계약">계약</button><button class="nf-chip" data-dim="type" data-val="출시">출시</button><button class="nf-chip" data-dim="type" data-val="매출">매출</button><button class="nf-chip" data-dim="type" data-val="화제">화제</button></div>
       </div>
       <div class="news-grid">
+        <div class="news-item" style="--nc:var(--mint)" data-sector="AI" data-type="출시" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mint)">🌶️ AI · 출시</span><span class="news-date">6/26</span></div>
+          <h4 class="news-head">OpenAI, GPT-5.6 'Sol·Terra·Luna' 정부 제한하 공개</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>OpenAI가 6/26 차세대 GPT-5.6을 Sol·Terra·Luna 3종으로 공개 — 미국 정부 요청으로 접근 제한</li>
+              <li>최상위 Sol은 사이버보안 특화 — 취약점 연구·익스플로잇 등 장기 보안작업서 SOTA, 앤트로픽 Mythos Preview와 경쟁하며 출력토큰 약 1/3 적게 사용</li>
+              <li>Terra는 GPT-5.5급 성능을 절반 비용에, Luna는 속도·가격 최적화 저가형</li>
+              <li>초기엔 정부 승인을 받은 소수(약 20곳) 신뢰 파트너에게만 Codex·API로 제공</li>
+              <li>Sol이 TerminalBench 2.1서 신기록 — 정식 일반공개(GA)는 '수 주 내' 예고</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>앤트로픽 Fable 5·Mythos 5 수출통제(6/12)에 이어 OpenAI도 최상위 모델을 정부 통제하에 내놓는 패턴이 반복됨</li>
+              <li>OpenAI는 행정부와 '사이버 행정명령' 프레임워크를 함께 다듬는 중이라 밝힘</li>
+              <li>고위험 활동에 대한 안전장치를 강화한 채 출시 — 능력 상승과 오남용 방지를 함께 묶은 구조</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 OpenAI · Axios · Thurrott</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--mint)" data-sector="AI" data-type="출시" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mint)">🕹️ AI · 출시</span><span class="news-date">6/26</span></div>
+          <h4 class="news-head">OpenAI, ChatGPT '에이전트 모드' 통합 출시</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>OpenAI가 6/26 ChatGPT에 'agent mode'를 출시 — 작성창 도구 드롭다운에서 대화 중 언제든 켜는 방식</li>
+              <li>웹을 클릭·입력하는 'Operator'와 정보종합 'deep research'를 하나의 에이전트로 통합</li>
+              <li>ChatGPT가 자체 가상 컴퓨터에서 추론과 행동을 오가며 일정 브리핑·장보기·경쟁사 분석+슬라이드 작성 등 다단계 작업 수행</li>
+              <li>Pro·Plus·Team·Business·Enterprise·Edu에 지원 국가 전역 제공</li>
+              <li>같은 날 Codex Remote 전 요금제 일반공개(폰에서 Mac·Windows 작업 이어가기)·GPT-4.5 ChatGPT서 퇴역</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>화면에 실시간 내레이션으로 진행 과정을 보여주고, 사용자가 도중 개입해 브라우저를 직접 제어 가능</li>
+              <li>강화학습으로 웹 상호작용·프로그래밍 도구를 함께 학습시킨 단일 시스템</li>
+              <li>추천을 넘어 '대신 실행하는' 에이전트를 소비자 ChatGPT 본체에 기본 탑재한 행보</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 OpenAI Help Center · Releasebot</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--grape)" data-sector="우주" data-type="화제" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--grape)">📶 우주 · 화제</span><span class="news-date">6/26</span></div>
+          <h4 class="news-head">스페이스X, 스타링크 소비자용 휴대폰 서비스 검토</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>스페이스X 사장 그윈 숏웰이 IPO 로드쇼에서 '스타링크 브랜드 소비자용 이동통신 서비스'를 적극 검토 중이라고 발언(6/26 보도)</li>
+              <li>주체는 스페이스X — AT&T·버라이즌·T-모바일 '빅3' 통신사에 직접 도전하는 구도</li>
+              <li>기반은 EchoStar서 확보한 $17B(약 26조·환율 1,519원) 주파수 65MHz(FCC 승인)</li>
+              <li>위성 직접연결(Direct to Cell)로 일반 LTE폰이 위성에 바로 접속하는 기술이 핵심 축</li>
+              <li>도심은 직접 지상 기지국망(셀룰러 인프라)까지 구축하는 하이브리드망도 검토</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>기존 B2B(통신사에 용량 도매)·기내 와이파이를 넘어 '스페이스X가 직접 소비자에게 요금제 판매'로 전환하는 전략 변화</li>
+              <li>다만 가격·출시 시점 등 상용 조건은 미확정 — 지상망 구축에 막대한 투자가 필요한 점이 변수</li>
+              <li>'Starlink Mobile'·'Powered by Starlink' 상표 출원(2025.10)으로 소비자 브랜드 준비가 진행돼 온 정황</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 Android Authority · TechTimes · The Tech Portal (6/26~27)</div>
+          </div>
+        </div>
+
         <div class="news-item" style="--nc:var(--rose)" data-sector="자율주행" data-type="화제" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--rose)">⚖️ 자율주행 · 화제</span><span class="news-date">6/26</span></div>
           <h4 class="news-head">테슬라, FSD 보행자 사망 소송 비공개 조건 합의</h4>
@@ -104,6 +183,52 @@
               </ul>
             </div>
             <div class="news-src">📰 Electrek · TechCrunch · Bloomberg (6/26)</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--mint)" data-sector="AI" data-type="화제" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mint)">🕵️ AI · 화제</span><span class="news-date">6/24</span></div>
+          <h4 class="news-head">앤트로픽, '알리바바가 Claude 불법 추출' 의회 고발</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>앤트로픽이 6/24 美 상원 은행위·백악관에 서한 — 알리바바가 Claude를 '뻔뻔하게·불법적으로' 추출 시도했다고 고발</li>
+              <li>알리바바 Qwen랩 연계 운영자가 4/22~6/5 가짜 계정 약 25,000개로 Claude와 2,880만 건 주고받음</li>
+              <li>코딩·에이전트 추론 등 Claude 핵심 능력을 노린 '적대적 증류(distillation)' 수법 — 응답을 긁어 Qwen 학습에 재사용 주장</li>
+              <li>앤트로픽은 '중국 기업의 미 선두랩 무임승차 최대 시도'라고 규정</li>
+              <li>알리바바는 무대응 — 헤거티·김(앤디 킴) 상원의원은 제재 대상 추가 수정안 추진</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>앤트로픽이 제품을 중국에 내지 않기로 한 결정을 우회하려는 대규모 캠페인이라는 게 핵심 주장</li>
+              <li>백악관 OSTP가 두 달 전 '산업규모 증류 탐지·공동대응' 메모를 낸 직후 터진 사안</li>
+              <li>오픈웨이트 중국 모델 급부상의 이면에 '증류 의존' 논쟁이 정책·안보 이슈로 비화</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 CNBC · Bloomberg · TechTimes</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--leaf)" data-sector="데이터센터" data-type="매출" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--leaf)">⚡ 데이터센터 · 매출</span><span class="news-date">6/24</span></div>
+          <h4 class="news-head">GE버노바 가스터빈, AI발 수요로 2031년까지 예약 만석</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>GE Vernova 가스터빈 슬롯이 AI 데이터센터 수요로 2030~2031년까지 사실상 만석</li>
+              <li>AI·데이터센터 부하가 가스터빈 백로그의 약 20% 차지</li>
+              <li>1분기 전기화 부문서 데이터센터향 설비 수주 $2.4B — 작년 연간 전체보다 많음</li>
+              <li>가스터빈 가격이 3년 새 약 300%(kW당) 급등, 2026 신규수주는 추가 10~20%p↑</li>
+              <li>Crusoe가 LM2500XPRESS 터빈 29기(약 1GW)를 텍사스 AI발전용으로 발주</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>전력설비가 새로운 AI 인프라 병목으로 부상하며 터빈 제조사가 수혜 집중</li>
+              <li>CEO는 2026년 수주 단가가 2025년 4분기 대비 dollar/kW 기준 10~20%p 높을 것이라 언급</li>
+              <li>'AI 전력 슈퍼사이클'이 칩을 넘어 발전·송배전 설비로 확산되는 단면</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 CNBC · Power Engineering · Utility Dive</div>
           </div>
         </div>
 
@@ -265,6 +390,52 @@
               </ul>
             </div>
             <div class="news-src">📰 Axios · Teslarati · Motley Fool</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--rose)" data-sector="자율주행" data-type="출시" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--rose)">🚖 자율주행 · 출시</span><span class="news-date">6/22</span></div>
+          <h4 class="news-head">테슬라, 오스틴 로보택시 1년 만에 안전요원 완전 제거</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>테슬라가 오스틴 로보택시 서비스 1주년(6/22)에 맞춰 안전 모니터요원을 완전히 제거하고 무인 일반 운행 전환</li>
+              <li>2025년 6월 22일 조수석 모니터요원 동승으로 시작 → 1/22 제한적 무인 → 6/3 메트로 전역 무인 → 6/22 모니터 완전 제거 순으로 단계 확대</li>
+              <li>운전석에 사람이 없는 '진짜 무인' 공개 운행으로, 머스크가 수년간 약속한 자율주행의 변곡점</li>
+              <li>현재 실제 운행 차량은 텍사스 전역 ~20대 수준으로 대수는 아직 소규모</li>
+              <li>카메라 기반 '비전 온리' FSD로 운행 — 라이다 의존 웨이모와 대비</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>NHTSA가 5월 테슬라에 공식 정보요청을 보냈고, 2025년 6월 출시 이후 오스틴 플릿 관련 14건 충돌이 보고되며 규제 리스크가 병존</li>
+              <li>본격 증차는 10억 파라미터급 신경망을 적용한 FSD v15와 사이버캡 양산 램프 이후로 전망</li>
+              <li>6/3 메트로 전역 확대(아카이브 기보고)와 달리, 이번은 '안전요원 자체를 없앤' 1주년 마일스톤이 핵심</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 Basenor · InsideEVs · CNBC</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--leaf)" data-sector="데이터센터" data-type="계약" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--leaf)">🔌 데이터센터 · 계약</span><span class="news-date">6/22</span></div>
+          <h4 class="news-head">MS·셰브론, 텍사스에 2.67GW 독립 가스발전 'Kilby'</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>마이크로소프트·셰브론이 20년 전력공급 계약 체결(6/22) — 'Project Kilby'</li>
+              <li>서텍사스 페코스에 2.67GW 천연가스 발전소 신설, MS AI 데이터센터에 전용 공급</li>
+              <li>약 $7B(약 10.6조·환율 1,519원) 프로젝트, 발전설비 대부분 GE Vernova 터빈</li>
+              <li>ERCOT 그리드에 의존하지 않는 '오프그리드' 독립 전력 구조</li>
+              <li>최종투자결정(FID) 2026년 말, 첫 전력은 2028년 목표</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>전력이 AI 데이터센터의 최대 병목이 되자 그리드를 우회하는 자가발전으로 선회</li>
+              <li>퍼미안 분지 천연가스를 연료로, 일부 용량은 캐터필러 Solar Turbines가 보완</li>
+              <li>대형 가스발전을 데이터센터에 직결하는 '온사이트 발전' 흐름의 대표 사례</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 CNBC · TechCrunch · Chevron Newsroom</div>
           </div>
         </div>
 
@@ -891,6 +1062,73 @@
           </div>
         </div>
 
+        <div class="news-item" style="--nc:var(--mango-deep)" data-sector="방산" data-type="계약" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mango-deep)">🛩️ 방산 · 계약</span><span class="news-date">6/17</span></div>
+          <h4 class="news-head">美 공군, 앤듀릴·제너럴아토믹스에 무인전투기 첫 양산계약</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>美 공군이 CCA(협동전투기) Increment 1 양산계약을 앤듀릴·제너럴아토믹스에 부여(6/17)</li>
+              <li>앤듀릴 FQ-44A 퓨리 + 제너럴아토믹스 FQ-42A 다크멀린, 첫 150대 분량</li>
+              <li>전투기급 자율 무인기를 양산하기로 한 주요국 최초 사례</li>
+              <li>대당 단가 $30M(약 46조 환산 아님·대당 약 456억) 미만 목표·2020년대 말 인도</li>
+              <li>일정보다 4개월 앞당겨 계약 — 프로토타입→양산 약 2년의 초고속 전환</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>Increment 1 개발·조달 총액은 약 $8.9B(약 14조·환율 1,519원) 규모로 거론</li>
+              <li>실드AI의 자율비행 SW 'Hivemind'도 같은 사업에서 양산계약 확보</li>
+              <li>유인 전투기를 보조하는 '드론 윙맨' 대량 도입 시대 진입 신호</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 DefenseScoop · Breaking Defense · Defense One</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--mango-deep)" data-sector="방산" data-type="계약" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mango-deep)">🤝 방산 · 계약</span><span class="news-date">6/17</span></div>
+          <h4 class="news-head">앤듀릴, 라인메탈과 유럽용 드론·순항미사일 공동생산 서명</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>앤듀릴과 독일 라인메탈이 유럽향 순항미사일·전투드론·고체로켓모터 공동개발 협약 정식 서명(6/17)</li>
+              <li>앤듀릴 '바라쿠다' 저가 순항미사일군 + YFQ-44 제트 전투드론을 유럽 요구사항에 맞춰 개조</li>
+              <li>라인메탈이 유럽 고객 영업·판매·사후지원 담당, 향후 독일 현지생산도 추진</li>
+              <li>바라쿠다는 대량생산 최적화 모듈형 자율 비행체로 NATO권 관심 집중</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>앤듀릴의 미국산 무기를 유럽이 현지에서 찍어내는 '메이드 인 유럽' 구조</li>
+              <li>라인메탈은 별도로 분트스베어 FV-014 배회폭탄 수십억 유로 기본계약(1차 발주 약 €300M)도 확보</li>
+              <li>유럽 재무장 흐름에서 저가 대량 정밀무기 공급망이 미·독 합작으로 재편</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 Militarnyi · UK Defence Journal · heise online</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--mango-deep)" data-sector="방산" data-type="화제" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mango-deep)">🇷🇴 방산 · 화제</span><span class="news-date">6/17</span></div>
+          <h4 class="news-head">루마니아 K2 전차 216대 입찰…현대로템, 美·독과 3파전</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>루마니아가 차세대 전차 216대 도입에 €6.5B(약 11.2조) 투입 추진</li>
+              <li>현대로템 K2 흑표 vs 美 에이브럼스 vs 독일 레오파르트 경합 구도</li>
+              <li>EU 무기 공동구매 대출 'SAFE 기금' 활용 — '부품 65%+ EU 회원국 생산' 조건</li>
+              <li>루마니아 군 당국 '상반기 중 공급업체 선정 진전' 시사</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>폴란드 K2 1·2차 계약 이후 동유럽 차기 대형 전차 시장으로 부상</li>
+              <li>SAFE 65% EU 현지생산 조건이 K2의 현지화·산업협력 부담을 키우는 변수</li>
+              <li>업계는 최종 사업자 선정이 2027년으로 넘어갈 가능성도 거론</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 밀리충전(다음) · 인사이트코리아 · 딜사이트</div>
+          </div>
+        </div>
+
         <div class="news-item" style="--nc:var(--mint)" data-sector="AI" data-type="화제" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--mint)">✂️ AI · 화제</span><span class="news-date">6/17</span></div>
           <h4 class="news-head">MS, 내부 Claude Code 라이선스 해지…Copilot CLI로 전환</h4>
@@ -1075,6 +1313,28 @@
           </div>
         </div>
 
+        <div class="news-item" style="--nc:var(--mango-deep)" data-sector="방산" data-type="계약" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mango-deep)">✈️ 방산 · 계약</span><span class="news-date">6/16</span></div>
+          <h4 class="news-head">KAI·한화·LIG, 리야드 WDS서 국산 항공무장 공동개발 MOU</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>KAI·한화에어로스페이스·LIG넥스원이 사우디 리야드 '세계방산전시회(WDS 2026)'서 MOU 체결</li>
+              <li>국산 항공 무장 개발·체계통합·공동 마케팅이 골자</li>
+              <li>KF-21·FA-50에 탑재할 국산 정밀유도무기 국산화·통합 협력</li>
+              <li>세 회사가 '삼각편대'로 완제기+무장 패키지 수출 기반 강화</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>무기 단품이 아닌 '플랫폼+무장+체계통합' 묶음으로 수출 경쟁력 제고 전략</li>
+              <li>KAI는 이집트와 FA-50 36~최대 100대 수출 협상도 병행</li>
+              <li>중동을 폴란드 이후 K-방산 차기 핵심 시장으로 공략하는 흐름의 일부</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 이지경제 · 아주경제 · 중앙이코노미뉴스</div>
+          </div>
+        </div>
+
         <div class="news-item" style="--nc:var(--berry)" data-sector="반도체" data-type="계약" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--berry)">🏭 반도체 · 계약</span><span class="news-date">6/16</span></div>
           <h4 class="news-head">인텔, UMC와 파운드리 동맹…12nm·3nm 공동생산</h4>
@@ -1204,6 +1464,50 @@
               </ul>
             </div>
             <div class="news-src">📰 CNBC</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--rose)" data-sector="자율주행" data-type="매출" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--rose)">🟢 자율주행 · 매출</span><span class="news-date">6/15</span></div>
+          <h4 class="news-head">웨이모, 주 50만 유료탑승…20개 도시·도쿄·런던 확장</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>웨이모가 미국 10개 도시에서 주당 50만 건 유료 로보택시 탑승을 처리하는 규모 도달</li>
+              <li>2026년 도쿄·런던 포함 20개+ 신규 도시로 사상 최대 확장 추진(웨이모의 첫 유럽 진출)</li>
+              <li>런던은 재규어 I-PACE ~100대로 약 100㎢ 구역 테스트 중(현지 운영·정비는 Moove 담당)</li>
+              <li>미국선 Lyft와 손잡고 내슈빌, Avis Budget Group과 손잡고 댈러스에 서비스 도입 — 웨이모 앱·Lyft 앱 양쪽 호출 지원</li>
+              <li>5월엔 서비스 면적을 11개 도시 1,400㎢+로 약 27% 확대</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>웨이모는 차량 직접운영 대신 Avis(댈러스)·Moove(런던) 등 파트너에 인프라·정비·차고지 운영을 맡기는 분업 구조로 확장 속도를 높임</li>
+              <li>라이다·레이더 포함 L4 시스템으로 이미 상업운행 중이라, 비전 온리 테슬라와 기술 노선이 대비됨</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 CNBC · TechCrunch · CITIPEN</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--sky)" data-sector="양자" data-type="화제" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--sky)">🔊 양자 · 화제</span><span class="news-date">6/15</span></div>
+          <h4 class="news-head">구글, '퀀텀 에코' 검증가능 양자우위 첫 실증 (네이처 게재)</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>구글이 Willow 칩에서 OTOC 알고리즘 '퀀텀 에코(Quantum Echoes)' 실행해 첫 '검증가능 양자우위' 실증</li>
+              <li>세계 최고 슈퍼컴 대비 약 13,000배 빠른 속도 — 학술지 네이처 게재</li>
+              <li>'검증가능'은 다른 동급 양자컴에서 같은 결과 재현이 가능하다는 의미</li>
+              <li>UC버클리와 15·28원자 분자 연구에 적용해 기존 NMR 결과와 일치 확인</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>분자·자석·블랙홀 등 자연계 구조 규명에 활용 가능한 알고리즘</li>
+              <li>재현 가능한 '초고전적 연산'이 확장형 검증의 기반 — 실용 도구화에 한 걸음</li>
+              <li>단순 속도 기록을 넘어 '결과를 검증할 수 있는' 양자우위라는 점이 차별점</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 Google Blog · Quantum Computing Report · IEEE Spectrum</div>
           </div>
         </div>
 
@@ -1977,6 +2281,28 @@
           </div>
         </div>
 
+        <div class="news-item" style="--nc:var(--rose)" data-sector="자율주행" data-type="출시" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--rose)">🚙 자율주행 · 출시</span><span class="news-date">6/10</span></div>
+          <h4 class="news-head">아마존 죽스, 신형 로보택시 공개…주 100대 양산 예고</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>아마존 죽스(Zoox)가 개선형 로보택시 디자인을 공개 — 고화질 터치스크린·개선된 시트·헤드레스트 등 실내 개편</li>
+              <li>신형 차량은 라인오프되는 대로 연내 탑승객에 제공, 생산은 주당 최대 100대 페이스까지 램프업 가능</li>
+              <li>샌프란시스코에서 2026년 하반기 유료 로보택시 서비스 출시 계획</li>
+              <li>SF는 죽스 합류 시 라이더가 4개 로보택시 서비스를 고를 수 있는 세계 첫 도시가 될 전망</li>
+              <li>운전대·페달 없는 전용 차량 노선으로 웨이모·테슬라와 경쟁 구도</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>죽스는 차량 직접 설계·운영하는 수직통합 모델로, 양산 페이스 확보가 상업화의 핵심 변수</li>
+              <li>우버는 별개로 Nuro 기반 Lucid Gravity 로보택시를 내년 휴스턴으로 확대하는 등 AV 파트너십을 늘리는 흐름</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 The Driverless Digest · Not a Tesla App · InsideEVs</div>
+          </div>
+        </div>
+
         <div class="news-item" style="--nc:var(--leaf)" data-sector="데이터센터" data-type="계약" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--leaf)">🔴 데이터센터 · 계약</span><span class="news-date">6/10</span></div>
           <h4 class="news-head">텐서웨이브, AMD 전용 AI클라우드에 $3.5억 투자 유치</h4>
@@ -2406,6 +2732,29 @@
           </div>
         </div>
 
+        <div class="news-item" style="--nc:var(--berry)" data-sector="반도체" data-type="계약" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--berry)">🔒 반도체 · 계약</span><span class="news-date">6/7</span></div>
+          <h4 class="news-head">엔비디아, SK하이닉스와 2030년까지 HBM 공급 묶었다</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>엔비디아가 SK하이닉스와 차세대 AI 메모리 다년 공동개발·공급 계약 체결(6/7)</li>
+              <li>Vera Rubin·Vera CPU·RTX Spark·Jetson Thor까지 제품 로드맵 전반을 포괄</li>
+              <li>SK하이닉스가 Vera Rubin용 HBM4 물량의 약 60~70% 선점(삼성·마이크론 앞서)</li>
+              <li>HBM 캐파가 최소 2028년, 일부 전망은 2030년까지 빠듯하다는 진단</li>
+              <li>'실리콘 생산'이 아니라 '메모리 공급'이 AI 출하 속도의 병목이라는 의미</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>엔비디아가 공급사 설비투자 리스크를 흡수해주는 대신 물량을 잠그는 구조</li>
+              <li>앞서 인증(6/2)·유료 샘플과 달리, 이번은 로드맵 전체를 건 장기 락인 계약</li>
+              <li>금액 등 구체 조건은 비공개지만 '공급 안정+로드맵 정렬'이 전략 핵심</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 The Next Web · DataCenterDynamics · Korea Herald</div>
+          </div>
+        </div>
+
         <div class="news-item" style="--nc:var(--grape)" data-sector="우주" data-type="화제" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--grape)">📡 우주 · 화제</span><span class="news-date">6/5</span></div>
           <h4 class="news-head">FCC, 아마존 위성망 마감 유예…스타링크 반사이익</h4>
@@ -2810,6 +3159,29 @@
         </div>
 
         <div class="news-item" style="--nc:var(--berry)" data-sector="반도체" data-type="출시" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--berry)">🧠 반도체 · 출시</span><span class="news-date">6/1</span></div>
+          <h4 class="news-head">엔비디아, GTC서 추론 전용칩 'Groq 3 LPU' 공개</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>엔비디아가 GTC 2026서 언어처리장치(LPU) 'Groq 3' 공개 — 추론 전용 신규 칩군</li>
+              <li>약 $20B(약 30조·환율 1,519원) 규모 Groq 딜의 첫 결과물로 거론</li>
+              <li>액침냉각 'LPX 랙'에 LPU 256개·온칩 SRAM 128GB·스케일업 640TBps 구성</li>
+              <li>SRAM 기반 가속기로 삼성 4nm 공정을 기반으로 제조</li>
+              <li>로드맵상 있던 장문추론용 'Rubin CPX'를 폐기하고 LPX 랙으로 대체</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>엔비디아가 데이터센터 로드맵을 2028년까지 GPU·CPU·LPU 3축으로 재편</li>
+              <li>Groq 3 LPU는 2026년 하반기 출시, 후속 LP35(2027 하반기)·LP40(2028) 예고</li>
+              <li>GPU 일변도에서 추론 전용칩으로 전선을 넓히는 'inference 왕국 확장'</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 DataCenterDynamics · Tom's Hardware · StorageReview</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--berry)" data-sector="반도체" data-type="출시" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--berry)">💻 반도체 · 출시</span><span class="news-date">6/1</span></div>
           <h4 class="news-head">엔비디아, PC용 'RTX Spark' 슈퍼칩 공개·MS 서피스 탑재</h4>
           <div class="news-more"><span class="news-chev">▾</span></div>
@@ -3082,6 +3454,28 @@
         </div>
 
         <div class="news-item" style="--nc:var(--mango-deep)" data-sector="방산" data-type="계약" onclick="this.classList.toggle('open')">
+          <div class="news-top"><span class="news-tag" style="color:var(--mango-deep)">🐝 방산 · 계약</span><span class="news-date">5/19</span></div>
+          <h4 class="news-head">펜타곤, 페레니얼에 5억달러 대드론 계약…실드AI는 LUCAS 자율화</h4>
+          <div class="news-more"><span class="news-chev">▾</span></div>
+          <div class="news-extra">
+            <ul class="news-bullets">
+              <li>美 합동임무대 JIATF-401이 스타트업 Perennial Autonomy에 3년 $500M(약 7,600억) 대드론 IDIQ 부여(5/19)</li>
+              <li>우크라서 러 드론 4,000기+ 요격한 'Merops' 등 AI 대UAS 시스템 납품 예정</li>
+              <li>펜타곤이 실드AI를 저가 타격드론 'LUCAS' 자율화 사업에 선정(5/20)</li>
+              <li>실드AI 'Hivemind'가 LUCAS의 AI 조종사 역할 — 1명이 다수 플랫폼 감독</li>
+            </ul>
+            <div class="news-deep">
+              <ul class="news-bullets">
+              <li>LUCAS는 이란 샤헤드-136을 역설계한 저가 타격드론으로 대당 약 $35,000(약 5,300만원)</li>
+              <li>우크라이나식 '값싼 요격기' 교리를 미군 정식 독트린으로 채택하는 흐름</li>
+              <li>명명된 프로그램 계약으로 '군집 타격' 교리가 예산문서에서 실전 조달로 이동</li>
+              </ul>
+            </div>
+            <div class="news-src">📰 DefenseScoop · Defense News · Breaking Defense</div>
+          </div>
+        </div>
+
+        <div class="news-item" style="--nc:var(--mango-deep)" data-sector="방산" data-type="계약" onclick="this.classList.toggle('open')">
           <div class="news-top"><span class="news-tag" style="color:var(--mango-deep)">🚁 방산 · 계약</span><span class="news-date">5/19</span></div>
           <h4 class="news-head">美국방부, Shield AI 저비용 드론에 선택</h4>
           <div class="news-more"><span class="news-chev">▾</span></div>
@@ -3190,7 +3584,7 @@
           </div>
         </div>
       </div>
-      <p class="news-count" id="newsCount" data-base="전체 139건 · 웹 최신 139건">전체 139건 · 웹 최신 139건</p>
+      <p class="news-count" id="newsCount" data-base="전체 156건 · 웹 최신 156건">전체 156건 · 웹 최신 156건</p>
       <!-- NEWS:END -->
 
       <p style="text-align:center;font-size:11.5px;color:var(--text-muted);margin:18px 0 0;line-height:1.6">

@@ -1,6 +1,6 @@
 # 🌐 글로벌 테크 뉴스 — 작전 상황실 (Tactical Globe)
 
-[brswinvesting 뉴스 타임라인](https://brswinvesting.phyksw.workers.dev/news)의 139건(AI·반도체·우주·방산·양자·자율주행)을
+[brswinvesting 뉴스 타임라인](https://brswinvesting.phyksw.workers.dev/news)의 156건(AI·반도체·우주·방산·양자·자율주행)을
 **다크 벡터 지구본 + 클린 인포그래픽 대시보드**로 시각화한 인터랙티브 HTML입니다.
 
 ## 실행
@@ -28,7 +28,7 @@
 원본 뉴스에 국가 필드가 없어 **헤드라인 주체 기업의 본사 국가**로 매핑.
 예: 테슬라·SpaceX·OpenAI→🇺🇸, 삼성·SK·한화·KAI→🇰🇷, TSMC→🇹🇼, Alibaba·Zhipu→🇨🇳, 모빌아이→🇮🇱,
 Nebius→🇳🇱, 라인메탈→🇩🇪, 페라리→🇮🇹, TCS→🇮🇳, D-Wave→🇨🇦, 드론실드→🇦🇺.
-분포: **US 113 · KR 11 · CN 5 · 그 외 9개국** (139건 / 12개국). 규칙·예외는 `enrich.js`에서 수정.
+분포: **US 128 · KR 13 · CN 5 · 그 외 9개국** (156건 / 12개국). 규칙·예외는 `enrich.js`에서 수정.
 
 ## 파일 구조
 ```
